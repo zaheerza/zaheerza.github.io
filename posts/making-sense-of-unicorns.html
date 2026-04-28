@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Making Sense of Unicorns &mdash; INSIGHTMENT</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --ink:#111827; --muted:#6b7280; --border:#e5e7eb; --accent:#0f62fe; --accent-bg:#eff6ff; --bg:#ffffff; --surface:#f9fafb; --radius:8px; --font:'Inter', system-ui, -apple-system, sans-serif; }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body { font-family: var(--font); color: var(--ink); background: var(--bg); line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    .site-header { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); }
+    .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; height: 60px; }
+    .logo { font-size: 1.1rem; font-weight: 700; letter-spacing: .04em; }
+    .logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 0; list-style: none; }
+    .nav-links li a { display: block; padding: .5rem 1rem; font-size: .875rem; font-weight: 500; color: var(--muted); border-radius: var(--radius); transition: color .15s, background .15s; }
+    .nav-links li a:hover, .nav-links li a.active { color: var(--ink); background: var(--surface); }
+    .nav-links .dropdown { position: relative; }
+    .nav-links .dropdown-menu { display: none; position: absolute; top: calc(100% + 4px); left: 0; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); min-width: 200px; box-shadow: 0 8px 24px rgba(0,0,0,.08); padding: .5rem 0; list-style: none; }
+    .nav-links .dropdown-menu li a { padding: .5rem 1.25rem; border-radius: 0; color: var(--ink); font-size: .85rem; background: none; }
+    .nav-links .dropdown-menu li a:hover { background: var(--surface); }
+    .nav-links .dropdown:hover .dropdown-menu { display: block; }
+    .nav-search input { border: 1px solid var(--border); border-radius: 20px; padding: .35rem 1rem; font-size: .85rem; outline: none; background: var(--surface); width: 180px; transition: border-color .15s, width .2s; }
+    .nav-search input:focus { border-color: var(--accent); width: 220px; }
+    .nav-hamburger { display: none; cursor: pointer; font-size: 1.4rem; }
+    footer { background: #0f172a; color: #94a3b8; padding: 3rem 1.5rem; margin-top: 4rem; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 2rem; }
+    footer h4 { color: #fff; font-size: .875rem; margin-bottom: .75rem; }
+    footer p, footer li { font-size: .85rem; line-height: 1.8; }
+    footer ul { list-style: none; }
+    footer ul li a { color: #94a3b8; transition: color .15s; }
+    footer ul li a:hover { color: #fff; }
+    .footer-bottom { max-width: 1200px; margin: 2rem auto 0; padding-top: 1.5rem; border-top: 1px solid #1e293b; font-size: .8rem; display: flex; justify-content: space-between; }
+    .sidebar { display: flex; flex-direction: column; gap: 2rem; }
+    .widget { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; }
+    .widget h3 { font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin-bottom: 1rem; }
+    .cat-list { list-style: none; display: flex; flex-direction: column; gap: .25rem; }
+    .cat-list li a { display: flex; justify-content: space-between; align-items: center; padding: .4rem .6rem; border-radius: 6px; font-size: .875rem; color: var(--ink); transition: background .15s; }
+    .cat-list li a:hover { background: var(--border); }
+    .cat-list .count { background: var(--border); color: var(--muted); font-size: .7rem; font-weight: 600; padding: .1rem .45rem; border-radius: 10px; }
+    @media (max-width: 900px) { .nav-links, .nav-search { display: none; } .nav-hamburger { display: block; } .footer-inner { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 600px) { .footer-inner { grid-template-columns: 1fr; } }
+
+    .post-header { padding: 3rem 1.5rem 2rem; max-width: 1200px; margin: 0 auto; border-bottom: 1px solid var(--border); }
+    .post-cats { display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; margin-bottom: .85rem; }
+    .post-cat { font-size: .68rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--accent); display: flex; align-items: center; gap: .3rem; }
+    .post-cat + .post-cat::before { content: '·'; margin-right: .1rem; color: var(--border); font-size: 1rem; }
+    .post-header h1 { font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 800; line-height: 1.2; margin-bottom: .85rem; }
+    .post-meta { font-size: .78rem; color: var(--muted); display: flex; gap: .5rem; align-items: center; }
+    .post-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: var(--muted); }
+    .article-outer { max-width: 1200px; margin: 0 auto; padding: 2.5rem 1.5rem 3rem; display: grid; grid-template-columns: 1fr 300px; gap: 3rem; }
+    .article-body p { margin-bottom: 1.35em; font-size: 1.0125rem; line-height: 1.78; }
+    .article-body h2 { font-size: 1.3rem; font-weight: 700; margin: 2em 0 .6em; }
+    .article-body h3 { font-size: 1.1rem; font-weight: 700; margin: 1.5em 0 .5em; }
+    .article-body h4 { font-size: 1rem; font-weight: 700; margin: 1.25em 0 .4em; }
+    .article-body ul, .article-body ol { padding-left: 1.4rem; margin-bottom: 1.35em; }
+    .article-body li { margin-bottom: .35em; line-height: 1.65; font-size: 1.0125rem; }
+    .article-body a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+    .article-body strong { font-weight: 600; }
+    .article-body em { font-style: italic; }
+    .article-body blockquote { border-left: 3px solid var(--border); padding: .75rem 1.25rem; margin: 1.5em 0; color: var(--muted); }
+    .article-body blockquote p { margin-bottom: 0; }
+    .article-body table { width: 100%; border-collapse: collapse; margin-bottom: 1.35em; font-size: .9rem; }
+    .article-body th, .article-body td { border: 1px solid var(--border); padding: .5rem .75rem; text-align: left; }
+    .article-body th { background: var(--surface); font-weight: 600; }
+    .article-body hr { border: none; border-top: 1px solid var(--border); margin: 2em 0; }
+    .post-nav { display: flex; justify-content: space-between; gap: 1rem; padding: 1.5rem 0; border-top: 1px solid var(--border); margin-top: 2rem; }
+    .post-nav-link { font-size: .85rem; color: var(--accent); max-width: 46%; line-height: 1.4; }
+    .post-nav-link:hover { text-decoration: underline; }
+    .post-nav-link.next { text-align: right; margin-left: auto; }
+    @media (max-width: 900px) { .article-outer { grid-template-columns: 1fr; } .sidebar { display: none; } }
+    @media (max-width: 600px) { .post-header { padding: 2rem 1rem; } }
+    .article-body pre { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem 1.25rem; margin-bottom: 1.35em; overflow-x: auto; font-size: .875rem; line-height: 1.6; }
+    .article-body pre code { background: none; border: none; padding: 0; font-size: inherit; }
+    .article-body code { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: .1em .35em; font-size: .9em; font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace; }
+    .article-body figure { margin: 1.5em 0; }
+    .article-body img { max-width: 100%; height: auto; border-radius: var(--radius); }
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <nav class="nav-inner">
+    <div class="logo"><a href="../index.html">INSIGHT<span>MENT</span></a></div>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li class="dropdown"><a href="#">Salesforce &#9662;</a>
+        <ul class="dropdown-menu">
+          <li><a href="#">How-To Guides</a></li>
+          <li><a href="#">Implementation</a></li>
+          <li><a href="#">Product Ownership</a></li>
+        </ul></li>
+      <li class="dropdown"><a href="#">Strategy &#9662;</a>
+        <ul class="dropdown-menu">
+          <li><a href="#">CRM Strategy</a></li>
+          <li><a href="#">Change Management</a></li>
+          <li><a href="#">Vendors</a></li>
+        </ul></li>
+      <li class="dropdown"><a href="#">Analytics &#9662;</a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Sales Analytics</a></li>
+          <li><a href="#">Reports &amp; Dashboards</a></li>
+          <li><a href="#">Report Formulas</a></li>
+        </ul></li>
+      <li><a href="#">AI &amp; Tech</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="../explore.html" style="color:var(--accent);">Explore &#8599;</a></li>
+    </ul>
+    <div class="nav-search"><input type="search" placeholder="Search posts&hellip;" /></div>
+    <div class="nav-hamburger">&#9776;</div>
+  </nav>
+</header>
+<div class="post-header">
+  <div class="post-cats"><span class="post-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Technology</span></div>
+  <h1>Making Sense of Unicorns</h1>
+  <div class="post-meta">
+    <span>Jan 14, 2019</span><span class="dot"></span><span>10 min read</span>
+  </div>
+</div>
+<div class="article-outer">
+  <article class="article-body">
+    <p>Contemporary attitudes towards disruption by new technologies revel in the notion that there is opportunity in uncertainty, in the space where the physical and the familiar can be replaced by the digital and the novel, and where value is created by shifting bits in an app and across the internet.</p>
+
+<p>It’s an appealing idea. Virtually anything is possible. With funding and passion. Experience something you didn’t enjoy? It was too slow? It was too cumbersome? The service was poor or lacked a sense of experience? Then do something about it.</p>
+
+<p>Let’s consider Uber. It was started by a couple of millionaire entrepreneurs who were apparently caught cabless on a winter’s night in Paris in 2008.</p>
+
+<p>Uber is lauded for not owning any vehicles or employing drivers, its value is derived from the market platform it has developed, an API (protocols which allow seamless interactions between different software applications) technology stack, which efficiently matches riders with drivers.</p>
+
+<p>In this platform economy value (in the form of consumer utility, if not economic value) has been created, to be sure. However, Uber is nowhere close to being profitable. Its level of losses is unprecedented and investors give it more latitude than most to become profitable. Despite this a $100bn stock market listing beckons.</p>
+
+<p>The convenience and utility of a service such as Uber is clear. Whether in a strange city or having a late night out having the ability to, more or less in a frictionless manner, summon transportation and pay for it on an ad hoc and real time basis is hugely beneficial.</p>
+
+<p>Uber’s marketplace epitomizes supply and demand economics. The market determines pricing. Surge pricing is not an act of exploiting desperate customers on New Year’s Eve or during other holidays as we’re wont to think. You might be surprised to learn that is an efficient mechanism to manage demand to ensure the optimum level of drivers to meet the demand of willing payers. As much as it’s a business it’s also an economic experiment. Uber has an entire economics team whose purpose is to persuade you to love the economics of Uber as much as economists love Uber economics.</p>
+
+<p>As a private company Uber does not publish its financial performance regularly so it's difficult to judge progress. However, competition and market growth objectives lead to rides that are subsidized through discounted pricing and promotional rides. This accounts for some part of the losses and is not sustainable.</p>
+
+<p>I don’t intend to single out any one venture but when assessing the value of Silicon Valley superstars, the so-called unicorns, we should consider all aspects not just the stunning valuations and consumer utility.</p>
+
+<p>A couple of years ago an Uber driver in South Africa told me that he was happy making the switch to being a full time driver. I remember him clearly mostly because his idea of a safe following distance involved driving as close as possible to the car in front possibly to save fuel by riding in the slipstream. He had previously been employed as an armed response security officer and the stress of the job had worn his nerves and led him to a new career. Just as well. I could not imagine this talkative and laid-back man with a sub-automatic weapon at his side, finger on the trigger, draped in body armour, taking on a gang of armed criminals in the dead of the night. At that time he was earning more as a driver that in his previous job. And he liked deciding on his own working hours.</p>
+
+<p>His principal complaint was not being able to secure vehicle finance to purchase his own vehicle. Even though he was earning regularly (although not a fixed salary) he was deemed uncreditworthy by financing companies. Those companies which offered him financing he felt were exorbitantly priced.</p>
+
+<p>In South Africa, I have never ridden with an owner driver, always someone earning a commission off a commission. First Uber, then the owner, takes a cut. Unable to obtain financing, the driver is consigned to subcontracted employment in the gig economy.When I speak to drivers now I get the sense that the income isn’t as lucrative as before. Uber manages the supply of drivers. This is tricky. On the one hand it has to attract enough drivers to ensure that there is an adequate supply especially during peak times while keeping the number low enough to make it lucrative enough.</p>
+
+<p>Employees are throwbacks to the 20th century; the gig economy, enabled by marketplaces and APIs, rules now, emboldened by changing attitudes towards and morphing definitions of the very concept of work and the ever growing, looming spectre of robots and automation.</p>
+
+<p>Socialist tendencies and naysaying aside, a company such as Uber, and the resultant disruption, is not necessarily a bad thing nor is it unprecedented; every economic revolution brought with it dislocation. Just as it did when the Agrarian gave way to the Industrial which in turn gave way to the Information Age as the dominant form of economic activity. During these transition periods upstarts will take on the incumbents, innovation dilemmas will play out and winners and losers will be declared. The new economy will be replaced by newer economies.</p>
+
+<p>In general, when it comes to high-growth technology numbers, a number of things don’t feel right though. Consider the social and economic impact of these new business models. They often rely on data (which would normally be considered private) derived from their users. They are built to scale by employing fewer people and smarter technology. Some of them, such as Uber, rely on third parties who are not employees but are core to the delivery of service. They are, quite often, founded by connected Silicon Valley entrepreneurs who operate with a certain mindset.</p>
+
+<p>The sheer volume of user data generated on these platforms and the consequent deep insight and intimate knowledge of users delivered by insatiable learning machines give rise to unintended consequences. These range from misuse of private data to outright manipulation of user behavior especially on social networks eager to monetize citizen users who resemble products more than they resemble customers and where users behave more like drug users than end users.</p>
+
+<p>To generate revenue social networks sell advertising to businesses, political campaigns and special interest groups. Advertisers value the ability to direct their advertising / political messages to their targeted audiences. To achieve this social networks develop software which efficiently matches brand advertising to target groups. The problem arises when the depth and breadth of all available information on social network users is brought to bear by the ad targeting engine.</p>
+
+<p>Every ‘like’ given, every news and product link clicked, every interest shown, every preference shared, every bit of demographic data shared and the same for everyone you have interacted with is available for targeting. What’s more is the growing use of ferociously efficient learning machines which crunch the numbers, detect patterns and present the probability of expected behaviours all in the service of tempting you to click on a product ad or like a political message.</p>
+
+<p>Consider, also, the effect on jobs. Kodak at its peak had 60 000 employees in the Rochester area and 145 000 employees worldwide a few years later. Instagram, when it was sold to Facebook for $1bn, had 13 employees. For the sake of argument, let’s say that Instagram and similar companies are the latter day Kodaks, fulfilling a similar need, and let’s also say they end up employing 1000 people. What is impact of the lost 59 000 jobs?</p>
+
+<p>Or what about wealth concentration? One hundred people with $1bn might have the same overall economic impact as 1000 people with $1bn to invest and spend. However, wealth inequality deepens. In 2016, based on US Census Bureau and IRS data, the top 1% held just under 39% of wealth. The next 9% held a further 39% so the top 10% held about 78% of wealth. The remaining 90% held just under 23%. In 1989 this number was over 33%. We might conclude that this is the nature of capitalism, survival of the fittest and all that. If this trend continues there will truly be only two classes of people separated by the widening gulf between the haves and the have-nots. The widening inequality gap is a huge challenge. It represents capitalism going in the wrong direction, raises the spectre of a plutocracy and has been shown to slow growth. Incidentally, the last time the US saw this level of inequality was during the roaring Twenties just prior to the Great Depression.</p>
+
+<p>Let’s also look at the nature of the relationship between Uber and its drivers. As Uber is confronted with safety regulations, both for its drivers and riders, it has to tighten up on its quality standards when selecting drivers and implement processes to manage safety-related issues. To do this it has to impose rules on its drivers that render them more employee-like. Uber, therefore, has to convince the courts and regulators that it is a safety-conscious transport (or perhaps even a logistics) business and it is ‘merely’ a coordinator of customers and driver workers i.e. it is not an employer. It continues to resist this classification, because, as an employer, costs would rise and the fleet-footed scalable economic model would be threatened. Its drivers, gig economy workers, are caught up between these two conflicting objectives.</p>
+
+<p>Travis Kalanick, co-founder of Uber, was asked to vacate the CEO role in 2017. This was after a series of revelations regarding his management of sexual harassment claims or rather his lack of management of these claims which he ignored. Around the same time he was seen in a video berating a driver who was criticising the company for frequently changing their policies leading to a loss of income for the driver. The ride started congenially enough. Kalanick, wedged between two female friends, making small talk about his birthday, shoulders shimmying to the sounds of Maroon 5 becomes agitated by the questions raised by the driver at the end of the Uber Black ride and ends up ranting at the driver with a few expletives thrown in for good measure. Kalanick is often cited as an example of the tech bro culture in the Silicon Valley ecosystem of funders and financiers.</p>
+
+<p>For the all the technological innovation and disruption of complacent business models and for all the convenience and customer utility provided I wonder, on a net net basis, whether the world is better or worse off with these customer growth driven startups. It’s a complex web of benefits and costs and a straightforward economic tallying up of the costs and benefits won’t highlight the social impact. The answer will also be coloured by the relative weight given to the constituents of an individual’s value system.</p>
+
+<p>Disruption, by its very nature, is never an orderly process. Disrupters are able to disrupt in large part due to a culture that is reliant on the dissonance between dissatisfaction with the status quo and the willingness to do something about it. Disrupters will strongly feel that they will be judged solely on whether they are able to bridge that chasm with an ends-justifies-the-means mentality. This attitude is a misreading of the mood of the times. Startups are, rightly so, being called to account, not only for the financial bottom line but increasingly for the impact on society and on their employees. It is increasingly clear that&nbsp;<strong>how</strong>&nbsp;they bridge that gap is just as important as whether they bridge it at all.</p>
+
+<p><a href="https://twitter.com/ZaheerIsmail">Zaheer Ismail</a></p>
+    <nav class="post-nav"><a href="detecting-patterns.html" class="post-nav-link prev">&larr; Detecting patterns</a><a href="big-data-and-artificial-intelligence.html" class="post-nav-link next">Big data and Artificial intelligence &rarr;</a></nav>
+  </article>
+  <aside class="sidebar">
+    <div class="widget"><h3>Related</h3><ul class="cat-list"><li><a href="media-is-broken-what-can-be-done.html">Media is broken; what can be done?</a></li></ul></div>
+    <div class="widget">
+      <h3>Categories</h3>
+      <ul class="cat-list"><li><a href='#'>Salesforce-How To <span class='count'>5</span></a></li><li><a href='#'>AI <span class='count'>4</span></a></li><li><a href='#'>CRM <span class='count'>3</span></a></li><li><a href='#'>General <span class='count'>3</span></a></li><li><a href='#'>Technology <span class='count'>3</span></a></li><li><a href='#'>Product Ownership <span class='count'>2</span></a></li><li><a href='#'>Strategy <span class='count'>2</span></a></li><li><a href='#'>Reports &amp; Dashboards <span class='count'>2</span></a></li><li><a href='#'>Sales Analytics <span class='count'>2</span></a></li><li><a href='#'>Report Formulas <span class='count'>1</span></a></li><li><a href='#'>Salesforce <span class='count'>1</span></a></li><li><a href='#'>Implementation <span class='count'>1</span></a></li><li><a href='#'>Change Management <span class='count'>1</span></a></li><li><a href='#'>Vendors <span class='count'>1</span></a></li></ul>
+    </div>
+    <div class="widget" style="background:#eff6ff;border-color:#bfdbfe;">
+      <h3 style="color:#1d4ed8;">About Insightment</h3>
+      <p style="font-size:.875rem;color:#1e40af;line-height:1.7;">Salesforce product ownership &amp; CRM strategy consulting.</p>
+      <a href="https://insightment.co.za" target="_blank" style="display:inline-block;margin-top:1rem;font-size:.8rem;font-weight:600;color:#1d4ed8;">Visit insightment.co.za &rarr;</a>
+    </div>
+  </aside>
+</div>
+<footer>
+  <div class="footer-inner">
+    <div>
+      <h4>INSIGHTMENT</h4>
+      <p>Salesforce product ownership &amp; CRM strategy.<br>Insights for teams getting the most from their CRM.</p>
+    </div>
+    <div>
+      <h4>Topics</h4>
+      <ul>
+        <li><a href="#">Salesforce How-To</a></li>
+        <li><a href="#">CRM Strategy</a></li>
+        <li><a href="#">Sales Analytics</a></li>
+        <li><a href="#">Reports &amp; Dashboards</a></li>
+        <li><a href="#">AI &amp; Technology</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Site</h4>
+      <ul>
+        <li><a href="https://insightment.co.za">insightment.co.za</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 Insightment</span>
+    <span>Built with GitHub Pages</span>
+  </div>
+</footer>
+</body>
+</html>

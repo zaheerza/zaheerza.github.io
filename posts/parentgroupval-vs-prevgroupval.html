@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ParentGroupVal vs PrevGroupVal &mdash; INSIGHTMENT</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --ink:#111827; --muted:#6b7280; --border:#e5e7eb; --accent:#0f62fe; --accent-bg:#eff6ff; --bg:#ffffff; --surface:#f9fafb; --radius:8px; --font:'Inter', system-ui, -apple-system, sans-serif; }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body { font-family: var(--font); color: var(--ink); background: var(--bg); line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    .site-header { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); }
+    .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; height: 60px; }
+    .logo { font-size: 1.1rem; font-weight: 700; letter-spacing: .04em; }
+    .logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 0; list-style: none; }
+    .nav-links li a { display: block; padding: .5rem 1rem; font-size: .875rem; font-weight: 500; color: var(--muted); border-radius: var(--radius); transition: color .15s, background .15s; }
+    .nav-links li a:hover, .nav-links li a.active { color: var(--ink); background: var(--surface); }
+    .nav-links .dropdown { position: relative; }
+    .nav-links .dropdown-menu { display: none; position: absolute; top: calc(100% + 4px); left: 0; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); min-width: 200px; box-shadow: 0 8px 24px rgba(0,0,0,.08); padding: .5rem 0; list-style: none; }
+    .nav-links .dropdown-menu li a { padding: .5rem 1.25rem; border-radius: 0; color: var(--ink); font-size: .85rem; background: none; }
+    .nav-links .dropdown-menu li a:hover { background: var(--surface); }
+    .nav-links .dropdown:hover .dropdown-menu { display: block; }
+    .nav-search input { border: 1px solid var(--border); border-radius: 20px; padding: .35rem 1rem; font-size: .85rem; outline: none; background: var(--surface); width: 180px; transition: border-color .15s, width .2s; }
+    .nav-search input:focus { border-color: var(--accent); width: 220px; }
+    .nav-hamburger { display: none; cursor: pointer; font-size: 1.4rem; }
+    footer { background: #0f172a; color: #94a3b8; padding: 3rem 1.5rem; margin-top: 4rem; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 2rem; }
+    footer h4 { color: #fff; font-size: .875rem; margin-bottom: .75rem; }
+    footer p, footer li { font-size: .85rem; line-height: 1.8; }
+    footer ul { list-style: none; }
+    footer ul li a { color: #94a3b8; transition: color .15s; }
+    footer ul li a:hover { color: #fff; }
+    .footer-bottom { max-width: 1200px; margin: 2rem auto 0; padding-top: 1.5rem; border-top: 1px solid #1e293b; font-size: .8rem; display: flex; justify-content: space-between; }
+    .sidebar { display: flex; flex-direction: column; gap: 2rem; }
+    .widget { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; }
+    .widget h3 { font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin-bottom: 1rem; }
+    .cat-list { list-style: none; display: flex; flex-direction: column; gap: .25rem; }
+    .cat-list li a { display: flex; justify-content: space-between; align-items: center; padding: .4rem .6rem; border-radius: 6px; font-size: .875rem; color: var(--ink); transition: background .15s; }
+    .cat-list li a:hover { background: var(--border); }
+    .cat-list .count { background: var(--border); color: var(--muted); font-size: .7rem; font-weight: 600; padding: .1rem .45rem; border-radius: 10px; }
+    @media (max-width: 900px) { .nav-links, .nav-search { display: none; } .nav-hamburger { display: block; } .footer-inner { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 600px) { .footer-inner { grid-template-columns: 1fr; } }
+
+    .post-header { padding: 3rem 1.5rem 2rem; max-width: 1200px; margin: 0 auto; border-bottom: 1px solid var(--border); }
+    .post-cats { display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; margin-bottom: .85rem; }
+    .post-cat { font-size: .68rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--accent); display: flex; align-items: center; gap: .3rem; }
+    .post-cat + .post-cat::before { content: '·'; margin-right: .1rem; color: var(--border); font-size: 1rem; }
+    .post-header h1 { font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 800; line-height: 1.2; margin-bottom: .85rem; }
+    .post-meta { font-size: .78rem; color: var(--muted); display: flex; gap: .5rem; align-items: center; }
+    .post-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: var(--muted); }
+    .article-outer { max-width: 1200px; margin: 0 auto; padding: 2.5rem 1.5rem 3rem; display: grid; grid-template-columns: 1fr 300px; gap: 3rem; }
+    .article-body p { margin-bottom: 1.35em; font-size: 1.0125rem; line-height: 1.78; }
+    .article-body h2 { font-size: 1.3rem; font-weight: 700; margin: 2em 0 .6em; }
+    .article-body h3 { font-size: 1.1rem; font-weight: 700; margin: 1.5em 0 .5em; }
+    .article-body h4 { font-size: 1rem; font-weight: 700; margin: 1.25em 0 .4em; }
+    .article-body ul, .article-body ol { padding-left: 1.4rem; margin-bottom: 1.35em; }
+    .article-body li { margin-bottom: .35em; line-height: 1.65; font-size: 1.0125rem; }
+    .article-body a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+    .article-body strong { font-weight: 600; }
+    .article-body em { font-style: italic; }
+    .article-body blockquote { border-left: 3px solid var(--border); padding: .75rem 1.25rem; margin: 1.5em 0; color: var(--muted); }
+    .article-body blockquote p { margin-bottom: 0; }
+    .article-body table { width: 100%; border-collapse: collapse; margin-bottom: 1.35em; font-size: .9rem; }
+    .article-body th, .article-body td { border: 1px solid var(--border); padding: .5rem .75rem; text-align: left; }
+    .article-body th { background: var(--surface); font-weight: 600; }
+    .article-body hr { border: none; border-top: 1px solid var(--border); margin: 2em 0; }
+    .post-nav { display: flex; justify-content: space-between; gap: 1rem; padding: 1.5rem 0; border-top: 1px solid var(--border); margin-top: 2rem; }
+    .post-nav-link { font-size: .85rem; color: var(--accent); max-width: 46%; line-height: 1.4; }
+    .post-nav-link:hover { text-decoration: underline; }
+    .post-nav-link.next { text-align: right; margin-left: auto; }
+    @media (max-width: 900px) { .article-outer { grid-template-columns: 1fr; } .sidebar { display: none; } }
+    @media (max-width: 600px) { .post-header { padding: 2rem 1rem; } }
+    .article-body pre { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem 1.25rem; margin-bottom: 1.35em; overflow-x: auto; font-size: .875rem; line-height: 1.6; }
+    .article-body pre code { background: none; border: none; padding: 0; font-size: inherit; }
+    .article-body code { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: .1em .35em; font-size: .9em; font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace; }
+    .article-body figure { margin: 1.5em 0; }
+    .article-body img { max-width: 100%; height: auto; border-radius: var(--radius); }
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <nav class="nav-inner">
+    <div class="logo"><a href="../index.html">INSIGHT<span>MENT</span></a></div>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li class="dropdown"><a href="#">Salesforce &#9662;</a>
+        <ul class="dropdown-menu">
+          <li><a href="#">How-To Guides</a></li>
+          <li><a href="#">Implementation</a></li>
+          <li><a href="#">Product Ownership</a></li>
+        </ul></li>
+      <li class="dropdown"><a href="#">Strategy &#9662;</a>
+        <ul class="dropdown-menu">
+          <li><a href="#">CRM Strategy</a></li>
+          <li><a href="#">Change Management</a></li>
+          <li><a href="#">Vendors</a></li>
+        </ul></li>
+      <li class="dropdown"><a href="#">Analytics &#9662;</a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Sales Analytics</a></li>
+          <li><a href="#">Reports &amp; Dashboards</a></li>
+          <li><a href="#">Report Formulas</a></li>
+        </ul></li>
+      <li><a href="#">AI &amp; Tech</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="../explore.html" style="color:var(--accent);">Explore &#8599;</a></li>
+    </ul>
+    <div class="nav-search"><input type="search" placeholder="Search posts&hellip;" /></div>
+    <div class="nav-hamburger">&#9776;</div>
+  </nav>
+</header>
+<div class="post-header">
+  <div class="post-cats"><span class="post-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>Report Formulas</span><span class="post-cat">Reports &amp; Dashboards</span><span class="post-cat">Sales Analytics</span><span class="post-cat">Salesforce-How To</span></div>
+  <h1>ParentGroupVal vs PrevGroupVal</h1>
+  <div class="post-meta">
+    <span>Jun 29, 2024</span><span class="dot"></span><span>3 min read</span>
+  </div>
+</div>
+<div class="article-outer">
+  <article class="article-body">
+    <p>In Salesforce.com Reporting, <code>PARENTGROUPVAL</code> and <code>PREVGROUPVAL</code> are functions used in custom summary formulas within reports to calculate and compare summary values based on grouping levels. These functions are particularly useful in matrix and summary reports, where data is grouped and summarized by different dimensions. </p>
+
+<h3 class="wp-block-heading">PARENTGROUPVAL</h3>
+
+<p><code>PARENTGROUPVAL</code>&nbsp;is used to reference summary values from a parent grouping level. This function allows you to retrieve the value of a summary field from a parent group relative to the current grouping level.</p>
+
+<h4 class="wp-block-heading">Syntax:</h4>
+
+<pre class="wp-block-preformatted"><code>PARENTGROUPVAL(summary_field, parent_grouping_level)
+</code></pre>
+
+<ul>
+<li><code>summary_field</code>: The summary field you want to reference (e.g., SUM of Amount, COUNT of Opportunities).</li>
+
+<li><code>parent_grouping_level</code>: The parent grouping level relative to the current level.</li>
+</ul>
+
+<h4 class="wp-block-heading">Example:</h4>
+
+<p>Let's say you have a report summarizing sales data by&nbsp;<strong>Region</strong>&nbsp;and then by&nbsp;<strong>Country</strong>. You want to calculate the percentage of sales each country contributes to its parent region's total sales.</p>
+
+<ol>
+<li><strong>Report Grouping Structure</strong>:
+<ul>
+<li><strong>Parent Group</strong>: Region</li>
+
+<li><strong>Child Group</strong>: Country</li>
+</ul>
+</li>
+
+<li><strong>Summary Field</strong>: SUM of&nbsp;<code>Amount</code></li>
+
+<li><strong>Custom Summary Formula</strong>:<code>SUM(Amount) / PARENTGROUPVAL(SUM(Amount), REGION)</code></li>
+</ol>
+
+<p>In this example:</p>
+
+<ul>
+<li><code>SUM(Amount)</code>&nbsp;calculates the total sales for each country.</li>
+
+<li><code>PARENTGROUPVAL(SUM(Amount), REGION)</code>&nbsp;retrieves the total sales for the parent region.</li>
+
+<li>The formula then calculates the percentage of the total regional sales that each country contributes.</li>
+</ul>
+
+<h3 class="wp-block-heading">PREVGROUPVAL</h3>
+
+<p><code>PREVGROUPVAL</code>&nbsp;is used to reference the value of a summary field from the previous group value at the same grouping level. This function is helpful when you want to compare the current group's value with the previous group's value within the same level.</p>
+
+<h4 class="wp-block-heading">Syntax:</h4>
+
+<pre class="wp-block-preformatted"><code>PREVGROUPVAL(summary_field, grouping_level[, increment])
+</code></pre>
+
+<ul>
+<li><code>summary_field</code>: The summary field you want to reference (e.g., SUM of Amount, COUNT of Opportunities).</li>
+
+<li><code>grouping_level</code>: The grouping level at which to calculate the previous value.</li>
+
+<li><code>increment</code>&nbsp;(optional): An integer indicating how many previous groups to skip (default is 1).</li>
+</ul>
+
+<h4 class="wp-block-heading">Example:</h4>
+
+<p>Assume you have a report summarizing monthly sales data and you want to calculate the month-over-month change in sales.</p>
+
+<ol>
+<li><strong>Report Grouping Structure</strong>:
+<ul>
+<li>Grouping Level: Month</li>
+</ul>
+</li>
+
+<li><strong>Summary Field</strong>: SUM of&nbsp;<code>Amount</code></li>
+
+<li><strong>Custom Summary Formula</strong>:<code>SUM(Amount) - PREVGROUPVAL(SUM(Amount), MONTH)</code></li>
+</ol>
+
+<p>In this example:</p>
+
+<ul>
+<li><code>SUM(Amount)</code>&nbsp;calculates the total sales for the current month.</li>
+
+<li><code>PREVGROUPVAL(SUM(Amount), MONTH)</code>&nbsp;retrieves the total sales for the previous month.</li>
+
+<li>The formula calculates the difference in sales between the current month and the previous month.</li>
+</ul>
+
+<h3 class="wp-block-heading">Key Differences:</h3>
+
+<ul>
+<li><strong>PARENTGROUPVAL</strong>: Used to reference values from a parent grouping level. It's useful for comparing values between different levels of grouping, such as comparing a subgroup's value to its parent group's total.</li>
+
+<li><strong>PREVGROUPVAL</strong>: Used to reference values from the previous group at the same grouping level. It's useful for sequential comparisons within the same level, such as month-over-month or quarter-over-quarter comparisons.</li>
+</ul>
+
+<h3 class="wp-block-heading">Practical Scenarios:</h3>
+
+<ol>
+<li><strong>Using&nbsp;<code>PARENTGROUPVAL</code></strong>:
+<ul>
+<li><strong>Scenario</strong>: You have a sales report grouped by&nbsp;<strong>Region</strong>&nbsp;and then by&nbsp;<strong>Salesperson</strong>. You want to calculate each salesperson’s contribution to their respective region’s total sales.</li>
+
+<li><strong>Formula</strong>:<code>SUM(Amount) / PARENTGROUPVAL(SUM(Amount), REGION)</code></li>
+
+<li><strong>Result</strong>: This formula will show what percentage of the region's total sales each salesperson is responsible for.</li>
+</ul>
+</li>
+
+<li><strong>Using&nbsp;<code>PREVGROUPVAL</code></strong>:
+<ul>
+<li><strong>Scenario</strong>: You have a sales report grouped by&nbsp;<strong>Month</strong>. You want to compare this month’s sales to last month’s sales.</li>
+
+<li><strong>Formula</strong>:<code>SUM(Amount) - PREVGROUPVAL(SUM(Amount), MONTH)</code></li>
+
+<li><strong>Result</strong>: This formula will show the difference in sales between the current month and the previous month.</li>
+</ul>
+</li>
+</ol>
+
+<p>These functions are powerful tools for gaining deeper insights into your data by allowing for sophisticated comparisons and calculations within Salesforce reports.</p>
+    <nav class="post-nav"><a href="the-dos-and-donts-of-salesforce-product-ownership.html" class="post-nav-link prev">&larr; The do’s and don&#x27;ts of Salesforce product ownership</a><a href="a-new-crm-interface.html" class="post-nav-link next">A new CRM interface &rarr;</a></nav>
+  </article>
+  <aside class="sidebar">
+    <div class="widget"><h3>Related</h3><ul class="cat-list"><li><a href="getting-the-most-from-trailhead.html">Getting the most from Trailhead</a></li><li><a href="identifying-sales-pipeline-leakages.html">Identifying sales pipeline leaks</a></li><li><a href="getting-started-with-crm.html">Getting started with CRM</a></li><li><a href="how-ai-aids-productivity-in-crm.html">How AI aids productivity in CRM</a></li></ul></div>
+    <div class="widget">
+      <h3>Categories</h3>
+      <ul class="cat-list"><li><a href='#'>Salesforce-How To <span class='count'>5</span></a></li><li><a href='#'>AI <span class='count'>4</span></a></li><li><a href='#'>CRM <span class='count'>3</span></a></li><li><a href='#'>General <span class='count'>3</span></a></li><li><a href='#'>Technology <span class='count'>3</span></a></li><li><a href='#'>Product Ownership <span class='count'>2</span></a></li><li><a href='#'>Strategy <span class='count'>2</span></a></li><li><a href='#'>Reports &amp; Dashboards <span class='count'>2</span></a></li><li><a href='#'>Sales Analytics <span class='count'>2</span></a></li><li><a href='#'>Report Formulas <span class='count'>1</span></a></li><li><a href='#'>Salesforce <span class='count'>1</span></a></li><li><a href='#'>Implementation <span class='count'>1</span></a></li><li><a href='#'>Change Management <span class='count'>1</span></a></li><li><a href='#'>Vendors <span class='count'>1</span></a></li></ul>
+    </div>
+    <div class="widget" style="background:#eff6ff;border-color:#bfdbfe;">
+      <h3 style="color:#1d4ed8;">About Insightment</h3>
+      <p style="font-size:.875rem;color:#1e40af;line-height:1.7;">Salesforce product ownership &amp; CRM strategy consulting.</p>
+      <a href="https://insightment.co.za" target="_blank" style="display:inline-block;margin-top:1rem;font-size:.8rem;font-weight:600;color:#1d4ed8;">Visit insightment.co.za &rarr;</a>
+    </div>
+  </aside>
+</div>
+<footer>
+  <div class="footer-inner">
+    <div>
+      <h4>INSIGHTMENT</h4>
+      <p>Salesforce product ownership &amp; CRM strategy.<br>Insights for teams getting the most from their CRM.</p>
+    </div>
+    <div>
+      <h4>Topics</h4>
+      <ul>
+        <li><a href="#">Salesforce How-To</a></li>
+        <li><a href="#">CRM Strategy</a></li>
+        <li><a href="#">Sales Analytics</a></li>
+        <li><a href="#">Reports &amp; Dashboards</a></li>
+        <li><a href="#">AI &amp; Technology</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Site</h4>
+      <ul>
+        <li><a href="https://insightment.co.za">insightment.co.za</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 Insightment</span>
+    <span>Built with GitHub Pages</span>
+  </div>
+</footer>
+</body>
+</html>

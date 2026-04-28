@@ -3,110 +3,57 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>INSIGHTMENT — Salesforce & CRM Strategy</title>
+  <title>INSIGHTMENT &mdash; Salesforce &amp; CRM Strategy</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --ink:       #111827;
-      --muted:     #6b7280;
-      --border:    #e5e7eb;
-      --accent:    #0f62fe;
-      --accent-bg: #eff6ff;
-      --bg:        #ffffff;
-      --surface:   #f9fafb;
-      --radius:    8px;
-      --font:      'Inter', system-ui, -apple-system, sans-serif;
-    }
-
+    :root { --ink:#111827; --muted:#6b7280; --border:#e5e7eb; --accent:#0f62fe; --accent-bg:#eff6ff; --bg:#ffffff; --surface:#f9fafb; --radius:8px; --font:'Inter', system-ui, -apple-system, sans-serif; }
     html { font-size: 16px; scroll-behavior: smooth; }
     body { font-family: var(--font); color: var(--ink); background: var(--bg); line-height: 1.6; }
-
     a { color: inherit; text-decoration: none; }
-
-    /* ── NAV ─────────────────────────────────────────── */
-    .site-header {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-inner {
-      max-width: 1200px; margin: 0 auto;
-      padding: 0 1.5rem;
-      display: flex; align-items: center; justify-content: space-between;
-      height: 60px;
-    }
+    .site-header { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); }
+    .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; height: 60px; }
     .logo { font-size: 1.1rem; font-weight: 700; letter-spacing: .04em; }
     .logo span { color: var(--accent); }
-
     .nav-links { display: flex; gap: 0; list-style: none; }
-    .nav-links li a {
-      display: block; padding: .5rem 1rem;
-      font-size: .875rem; font-weight: 500; color: var(--muted);
-      border-radius: var(--radius);
-      transition: color .15s, background .15s;
-    }
+    .nav-links li a { display: block; padding: .5rem 1rem; font-size: .875rem; font-weight: 500; color: var(--muted); border-radius: var(--radius); transition: color .15s, background .15s; }
     .nav-links li a:hover, .nav-links li a.active { color: var(--ink); background: var(--surface); }
-
     .nav-links .dropdown { position: relative; }
-    .nav-links .dropdown-menu {
-      display: none; position: absolute; top: calc(100% + 4px); left: 0;
-      background: var(--bg); border: 1px solid var(--border);
-      border-radius: var(--radius); min-width: 200px;
-      box-shadow: 0 8px 24px rgba(0,0,0,.08);
-      padding: .5rem 0; list-style: none;
-    }
-    .nav-links .dropdown-menu li a {
-      padding: .5rem 1.25rem; border-radius: 0; color: var(--ink);
-      font-size: .85rem; background: none;
-    }
+    .nav-links .dropdown-menu { display: none; position: absolute; top: calc(100% + 4px); left: 0; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); min-width: 200px; box-shadow: 0 8px 24px rgba(0,0,0,.08); padding: .5rem 0; list-style: none; }
+    .nav-links .dropdown-menu li a { padding: .5rem 1.25rem; border-radius: 0; color: var(--ink); font-size: .85rem; background: none; }
     .nav-links .dropdown-menu li a:hover { background: var(--surface); }
     .nav-links .dropdown:hover .dropdown-menu { display: block; }
-
-    .nav-search input {
-      border: 1px solid var(--border); border-radius: 20px;
-      padding: .35rem 1rem; font-size: .85rem; outline: none;
-      background: var(--surface); width: 180px;
-      transition: border-color .15s, width .2s;
-    }
+    .nav-search input { border: 1px solid var(--border); border-radius: 20px; padding: .35rem 1rem; font-size: .85rem; outline: none; background: var(--surface); width: 180px; transition: border-color .15s, width .2s; }
     .nav-search input:focus { border-color: var(--accent); width: 220px; }
-
     .nav-hamburger { display: none; cursor: pointer; font-size: 1.4rem; }
+    footer { background: #0f172a; color: #94a3b8; padding: 3rem 1.5rem; margin-top: 4rem; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 2rem; }
+    footer h4 { color: #fff; font-size: .875rem; margin-bottom: .75rem; }
+    footer p, footer li { font-size: .85rem; line-height: 1.8; }
+    footer ul { list-style: none; }
+    footer ul li a { color: #94a3b8; transition: color .15s; }
+    footer ul li a:hover { color: #fff; }
+    .footer-bottom { max-width: 1200px; margin: 2rem auto 0; padding-top: 1.5rem; border-top: 1px solid #1e293b; font-size: .8rem; display: flex; justify-content: space-between; }
+    .sidebar { display: flex; flex-direction: column; gap: 2rem; }
+    .widget { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; }
+    .widget h3 { font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin-bottom: 1rem; }
+    .cat-list { list-style: none; display: flex; flex-direction: column; gap: .25rem; }
+    .cat-list li a { display: flex; justify-content: space-between; align-items: center; padding: .4rem .6rem; border-radius: 6px; font-size: .875rem; color: var(--ink); transition: background .15s; }
+    .cat-list li a:hover { background: var(--border); }
+    .cat-list .count { background: var(--border); color: var(--muted); font-size: .7rem; font-weight: 600; padding: .1rem .45rem; border-radius: 10px; }
+    @media (max-width: 900px) { .nav-links, .nav-search { display: none; } .nav-hamburger { display: block; } .footer-inner { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 600px) { .footer-inner { grid-template-columns: 1fr; } }
 
-    /* ── HERO ────────────────────────────────────────── */
-    .hero {
-      background: var(--bg);
-      color: var(--ink); padding: 4rem 1.5rem;
-      text-align: center; border-bottom: 1px solid var(--border);
-    }
+    .hero { background: var(--bg); color: var(--ink); padding: 4rem 1.5rem; text-align: center; border-bottom: 1px solid var(--border); }
     .hero h1 { font-size: clamp(2rem, 5vw, 3.25rem); font-weight: 800; line-height: 1.15; margin-bottom: 1rem; }
     .hero p { font-size: 1.125rem; color: var(--muted); max-width: 560px; margin: 0 auto 2rem; }
     .hero-tags { display: flex; gap: .5rem; justify-content: center; flex-wrap: wrap; }
-    .hero-tags a {
-      background: var(--surface); color: var(--muted);
-      border: 1px solid var(--border);
-      padding: .3rem .85rem; border-radius: 20px; font-size: .8rem;
-      transition: all .15s;
-    }
+    .hero-tags a { background: var(--surface); color: var(--muted); border: 1px solid var(--border); padding: .3rem .85rem; border-radius: 20px; font-size: .8rem; transition: all .15s; }
     .hero-tags a:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-bg); }
-
-    /* ── LAYOUT ──────────────────────────────────────── */
     .page-body { max-width: 1200px; margin: 0 auto; padding: 3rem 1.5rem; display: grid; grid-template-columns: 1fr 300px; gap: 3rem; }
-
-    /* ── FEATURED ────────────────────────────────────── */
-    .section-label {
-      font-size: .7rem; font-weight: 700; letter-spacing: .1em;
-      text-transform: uppercase; color: var(--accent); margin-bottom: 1rem;
-    }
+    .section-label { font-size: .7rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
     .featured-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 1.5rem; margin-bottom: 3rem; }
-    .card {
-      border: 1px solid var(--border); border-radius: var(--radius);
-      overflow: hidden; display: flex; flex-direction: column;
-      transition: box-shadow .2s, transform .2s;
-    }
+    .card { border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; display: flex; flex-direction: column; transition: box-shadow .2s, transform .2s; }
     .card:hover { box-shadow: 0 8px 32px rgba(0,0,0,.1); transform: translateY(-2px); }
-
     .card-body { padding: 1.25rem; flex: 1; display: flex; flex-direction: column; }
     .card-cat { font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--accent); margin-bottom: .4rem; display: flex; align-items: center; gap: .35rem; }
     .card-cat svg { flex-shrink: 0; }
@@ -115,283 +62,314 @@
     .card-excerpt { font-size: .85rem; color: var(--muted); flex: 1; margin-bottom: .75rem; }
     .card-meta { font-size: .75rem; color: var(--muted); display: flex; gap: .5rem; align-items: center; }
     .card-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: var(--muted); }
-
     .card.large .card-title { font-size: 1.25rem; }
-
-    /* ── POST LIST ───────────────────────────────────── */
     .post-list { display: flex; flex-direction: column; gap: 1.25rem; margin-bottom: 3rem; }
-    .post-row {
-      padding-bottom: 1.25rem; border-bottom: 1px solid var(--border);
-    }
+    .post-row { padding-bottom: 1.25rem; border-bottom: 1px solid var(--border); }
     .post-row:last-child { border-bottom: none; }
-    .post-row-body {}
-    .post-row-body .card-cat { margin-bottom: .2rem; }
-    .post-row-body .card-title { font-size: .95rem; margin-bottom: .25rem; }
-    .post-row-body .card-meta { margin-top: .25rem; }
-
-    /* ── SIDEBAR ─────────────────────────────────────── */
-    .sidebar { display: flex; flex-direction: column; gap: 2rem; }
-
-    .widget { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; }
-    .widget h3 { font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin-bottom: 1rem; }
-
-    .cat-list { list-style: none; display: flex; flex-direction: column; gap: .25rem; }
-    .cat-list li a {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: .4rem .6rem; border-radius: 6px;
-      font-size: .875rem; color: var(--ink);
-      transition: background .15s;
-    }
-    .cat-list li a:hover { background: var(--border); }
-    .cat-list li a .count {
-      background: var(--border); color: var(--muted);
-      font-size: .7rem; font-weight: 600; padding: .1rem .45rem; border-radius: 10px;
-    }
-
     .tag-cloud { display: flex; flex-wrap: wrap; gap: .4rem; }
-    .tag-cloud a {
-      background: var(--bg); border: 1px solid var(--border);
-      padding: .25rem .7rem; border-radius: 20px; font-size: .78rem;
-      color: var(--muted); transition: all .15s;
-    }
+    .tag-cloud a { background: var(--bg); border: 1px solid var(--border); padding: .25rem .7rem; border-radius: 20px; font-size: .78rem; color: var(--muted); transition: all .15s; }
     .tag-cloud a:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-bg); }
-
-    /* ── FOOTER ──────────────────────────────────────── */
-    footer {
-      background: #0f172a; color: #94a3b8;
-      padding: 3rem 1.5rem;
-      margin-top: 4rem;
-    }
-    .footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 2rem; }
-    footer h4 { color: #fff; font-size: .875rem; margin-bottom: .75rem; }
-    footer p, footer li { font-size: .85rem; line-height: 1.8; }
-    footer ul { list-style: none; }
-    footer ul li a { color: #94a3b8; transition: color .15s; }
-    footer ul li a:hover { color: #fff; }
-    .footer-bottom { max-width: 1200px; margin: 2rem auto 0; padding-top: 1.5rem; border-top: 1px solid #1e293b; font-size: .8rem; display: flex; justify-content: space-between; }
-
-    /* ── NOTICE ──────────────────────────────────────── */
-    .preview-notice {
-      background: #fefce8; border: 1px solid #fde047; color: #713f12;
-      text-align: center; padding: .6rem 1rem; font-size: .8rem; font-weight: 500;
-    }
-
-    /* ── RESPONSIVE ──────────────────────────────────── */
-    @media (max-width: 900px) {
-      .page-body { grid-template-columns: 1fr; }
-      .featured-grid { grid-template-columns: 1fr; }
-      .footer-inner { grid-template-columns: 1fr 1fr; }
-      .nav-links, .nav-search { display: none; }
-      .nav-hamburger { display: block; }
-    }
-    @media (max-width: 600px) {
-      .footer-inner { grid-template-columns: 1fr; }
-      .hero { padding: 3rem 1rem; }
-    }
+    @media (max-width: 900px) { .page-body { grid-template-columns: 1fr; } .featured-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 600px) { .hero { padding: 3rem 1rem; } }
   </style>
 </head>
 <body>
-
-<div class="preview-notice">
-  Preview build — content and design will be updated as posts are imported from insightment.co.za
-</div>
-
-<!-- NAV -->
 <header class="site-header">
   <nav class="nav-inner">
-    <div class="logo">INSIGHT<span>MENT</span></div>
-
+    <div class="logo"><a href="index.html">INSIGHT<span>MENT</span></a></div>
     <ul class="nav-links">
-      <li><a href="#" class="active">Home</a></li>
-      <li class="dropdown">
-        <a href="#">Salesforce ▾</a>
+      <li><a href="index.html">Home</a></li>
+      <li class="dropdown"><a href="#">Salesforce &#9662;</a>
         <ul class="dropdown-menu">
           <li><a href="#">How-To Guides</a></li>
           <li><a href="#">Implementation</a></li>
           <li><a href="#">Product Ownership</a></li>
-        </ul>
-      </li>
-      <li class="dropdown">
-        <a href="#">Strategy ▾</a>
+        </ul></li>
+      <li class="dropdown"><a href="#">Strategy &#9662;</a>
         <ul class="dropdown-menu">
           <li><a href="#">CRM Strategy</a></li>
           <li><a href="#">Change Management</a></li>
           <li><a href="#">Vendors</a></li>
-        </ul>
-      </li>
-      <li class="dropdown">
-        <a href="#">Analytics ▾</a>
+        </ul></li>
+      <li class="dropdown"><a href="#">Analytics &#9662;</a>
         <ul class="dropdown-menu">
           <li><a href="#">Sales Analytics</a></li>
           <li><a href="#">Reports &amp; Dashboards</a></li>
           <li><a href="#">Report Formulas</a></li>
-        </ul>
-      </li>
+        </ul></li>
       <li><a href="#">AI &amp; Tech</a></li>
       <li><a href="#">About</a></li>
-      <li><a href="./explore.html" style="color:var(--accent);">Explore ↗</a></li>
+      <li><a href="explore.html" style="color:var(--accent);">Explore &#8599;</a></li>
     </ul>
-
-    <div class="nav-search">
-      <input type="search" placeholder="Search posts…" />
-    </div>
-
-    <div class="nav-hamburger">☰</div>
+    <div class="nav-search"><input type="search" placeholder="Search posts&hellip;" /></div>
+    <div class="nav-hamburger">&#9776;</div>
   </nav>
 </header>
-
-<!-- HERO -->
 <section class="hero">
   <h1>Salesforce &amp; CRM<br>done right.</h1>
   <p>Strategy, how-to guides, analytics and insights for teams getting the most out of their CRM.</p>
   <div class="hero-tags">
-    <a href="#">Salesforce</a>
-    <a href="#">CRM Strategy</a>
-    <a href="#">Sales Analytics</a>
-    <a href="#">Reports &amp; Dashboards</a>
-    <a href="#">AI &amp; Big Data</a>
-    <a href="#">Change Management</a>
+    <a href="#">Salesforce</a><a href="#">CRM Strategy</a><a href="#">Sales Analytics</a>
+    <a href="#">Reports &amp; Dashboards</a><a href="#">AI &amp; Big Data</a><a href="#">Change Management</a>
   </div>
 </section>
-
-<!-- MAIN -->
 <div class="page-body">
   <main>
-
-    <!-- Featured -->
     <div class="section-label">Featured</div>
     <div class="featured-grid">
       <div class="card large">
         <div class="card-body">
-          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Technology</div>
-          <div class="card-title"><a href="#">Liberating the UI from the Database</a></div>
-          <div class="card-excerpt">How AI and SaaS are decoupling the user interface from the underlying data layer — and what that means for CRM design.</div>
-          <div class="card-meta">
-            <span>Feb 24, 2026</span><span class="dot"></span><span>5 min read</span>
-          </div>
+          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96-.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96-.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z"/></svg>AI</div>
+          <div class="card-title"><a href="posts/liberating-the-ui-from-the-database.html">Liberating the UI from the Database</a></div>
+          <div class="card-excerpt">There’s clearly a lot happening in the SaaS and AI space, more questions than answers at this point. One thing becoming clear to me: the traditional SaaS web app, led by the page- and form-based…</div>
+          <div class="card-meta"><span>Feb 24, 2026</span><span class="dot"></span><span>2 min read</span></div>
         </div>
       </div>
       <div style="display:flex;flex-direction:column;gap:1.5rem;">
         <div class="card">
           <div class="card-body">
-            <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></svg>Sales Analytics</div>
-            <div class="card-title"><a href="#">Identifying Sales Pipeline Leakages</a></div>
-            <div class="card-excerpt">A framework for finding where deals quietly drop off.</div>
-            <div class="card-meta"><span>2024</span></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-body">
             <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96-.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96-.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z"/></svg>AI</div>
-            <div class="card-title"><a href="#">Big Data and Artificial Intelligence</a></div>
-            <div class="card-excerpt">Harnessing data to develop predictive models that drive results.</div>
-            <div class="card-meta"><span>Jul 31, 2021</span></div>
+            <div class="card-title"><a href="posts/a-new-crm-interface.html">A new CRM interface</a></div>
+            <div class="card-excerpt">Ever since ChatGPT (and the underlying LLM) appeared, many of us have wondered when an LLM-powered chat…</div>
+            <div class="card-meta"><span>Jun 19, 2025</span></div>
+          </div>
+        </div><div class="card">
+          <div class="card-body">
+            <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>Salesforce-How To</div>
+            <div class="card-title"><a href="posts/parentgroupval-vs-prevgroupval.html">ParentGroupVal vs PrevGroupVal</a></div>
+            <div class="card-excerpt">In Salesforce.com Reporting, PARENTGROUPVAL and PREVGROUPVAL are functions used in custom summary formulas…</div>
+            <div class="card-meta"><span>Jun 29, 2024</span></div>
           </div>
         </div>
       </div>
     </div>
-
-    <!-- Latest posts -->
     <div class="section-label">Latest Posts</div>
     <div class="post-list">
-
       <div class="post-row">
-        <div class="post-row-body">
-          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>Salesforce How-To</div>
-          <div class="card-title"><a href="#">PARENTGROUPVAL &amp; PREVGROUPVAL in Salesforce Reporting</a></div>
-          <div class="card-meta"><span>2023</span><span class="dot"></span><span>Report Formulas</span></div>
+        <div>
+          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>Product Ownership</div>
+          <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
+            <a href="posts/the-dos-and-donts-of-salesforce-product-ownership.html">The do’s and don&#x27;ts of Salesforce product ownership</a></div>
+          <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">I’ve been working in the CRM and related domains in the Financial Services sector for close on two decades.  I spent most of this…</div>
+          <div class="card-meta"><span>Nov 7, 2022</span><span class="dot"></span><span>8 min read</span></div>
         </div>
-      </div>
-
-      <div class="post-row">
-        <div class="post-row-body">
-          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>Reports &amp; Dashboards</div>
-          <div class="card-title"><a href="#">Joined Reports in Salesforce</a></div>
-          <div class="card-meta"><span>2022</span><span class="dot"></span><span>Salesforce How-To</span></div>
+      </div><div class="post-row">
+        <div>
+          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>Salesforce-How To</div>
+          <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
+            <a href="posts/getting-the-most-from-trailhead.html">Getting the most from Trailhead</a></div>
+          <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">Anyone in the Salesforce ecosystem will know about Trailhead. It is a mighty resource but there are some points to note to get…</div>
+          <div class="card-meta"><span>Oct 16, 2022</span><span class="dot"></span><span>1 min read</span></div>
         </div>
-      </div>
-
-      <div class="post-row">
-        <div class="post-row-body">
-          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>CRM Strategy</div>
-          <div class="card-title"><a href="#">The Do's and Don'ts of Salesforce Product Ownership</a></div>
-          <div class="card-meta"><span>2023</span><span class="dot"></span><span>Product Ownership</span></div>
+      </div><div class="post-row">
+        <div>
+          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>Salesforce-How To</div>
+          <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
+            <a href="posts/identifying-sales-pipeline-leakages.html">Identifying sales pipeline leaks</a></div>
+          <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">When assessing lost opportunities it’s instructive to review where in the pipeline opportunities are being lost. Put another way…</div>
+          <div class="card-meta"><span>Feb 25, 2022</span><span class="dot"></span><span>1 min read</span></div>
         </div>
-      </div>
-
-      <div class="post-row">
-        <div class="post-row-body">
+      </div><div class="post-row">
+        <div>
+          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Blog</div>
+          <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
+            <a href="posts/it-is-what-it-is.html">It is what it is</a></div>
+          <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">Can we stop using this phrase?  On one hand it is uttered in frustration. It is a clear statement that someone has reached the…</div>
+          <div class="card-meta"><span>Jan 18, 2022</span><span class="dot"></span><span>1 min read</span></div>
+        </div>
+      </div><div class="post-row">
+        <div>
+          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>General</div>
+          <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
+            <a href="posts/four-reasons-why-listicles-are-bad.html">Four reasons why listicles are bad</a></div>
+          <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">Listicles (a portmanteau of list and article) appear to be useful. They provide quick bites of useful information in an easily…</div>
+          <div class="card-meta"><span>Jan 11, 2022</span><span class="dot"></span><span>1 min read</span></div>
+        </div>
+      </div><div class="post-row">
+        <div>
           <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96-.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96-.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z"/></svg>AI</div>
-          <div class="card-title"><a href="#">Detecting Patterns</a></div>
-          <div class="card-meta"><span>Sep 26, 2018</span><span class="dot"></span><span>AI &amp; Technology</span></div>
+          <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
+            <a href="posts/big-data-and-artificial-intelligence.html">Big data and Artificial intelligence</a></div>
+          <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">Harnessing massive volumes of data and developing predictive and prescriptive models to beat out the competition or adversaries…</div>
+          <div class="card-meta"><span>Jul 31, 2021</span><span class="dot"></span><span>2 min read</span></div>
+        </div>
+      </div><div class="post-row">
+        <div>
+          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Technology</div>
+          <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
+            <a href="posts/making-sense-of-unicorns.html">Making Sense of Unicorns</a></div>
+          <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">Contemporary attitudes towards disruption by new technologies revel in the notion that there is opportunity in uncertainty, in…</div>
+          <div class="card-meta"><span>Jan 14, 2019</span><span class="dot"></span><span>10 min read</span></div>
+        </div>
+      </div><div class="post-row">
+        <div>
+          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96-.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96-.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z"/></svg>AI</div>
+          <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
+            <a href="posts/detecting-patterns.html">Detecting patterns</a></div>
+          <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">This is how I imagine a future visit to a radiology department to be when AIs do the diagnostics. You&#x27;ll walk into the radiology…</div>
+          <div class="card-meta"><span>Sep 26, 2018</span><span class="dot"></span><span>1 min read</span></div>
+        </div>
+      </div><div class="post-row">
+        <div>
+          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>Salesforce-How To</div>
+          <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
+            <a href="posts/getting-started-with-crm.html">Getting started with CRM</a></div>
+          <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">1. Pick 3 burning issues to fix / improve or new initiatives to generate value. What is important is having a clear picture of…</div>
+          <div class="card-meta"><span>Mar 26, 2018</span><span class="dot"></span><span>1 min read</span></div>
+        </div>
+      </div><div class="post-row">
+        <div>
+          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>Strategy</div>
+          <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
+            <a href="posts/leadership-aikido.html">Leadership Aikido</a></div>
+          <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">Have started re-reading a book I picked up almost 20 years ago. It&#x27;s called Leadership Aikido by John O&#x27;Neil. Here are some of…</div>
+          <div class="card-meta"><span>Nov 8, 2017</span><span class="dot"></span><span>2 min read</span></div>
+        </div>
+      </div><div class="post-row">
+        <div>
+          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>Salesforce-How To</div>
+          <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
+            <a href="posts/how-ai-aids-productivity-in-crm.html">How AI aids productivity in CRM</a></div>
+          <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">One of the more painful administrative tasks faced by Sales reps and account managers is keeping contact lists up to date. Sure,…</div>
+          <div class="card-meta"><span>Jun 28, 2017</span><span class="dot"></span><span>1 min read</span></div>
+        </div>
+      </div><div class="post-row">
+        <div>
+          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Technology</div>
+          <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
+            <a href="posts/media-is-broken-what-can-be-done.html">Media is broken; what can be done?</a></div>
+          <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">Media companies are battling because the price of digital advertising is tending towards zero. Consumers don&#x27;t want to pay for…</div>
+          <div class="card-meta"><span>Apr 25, 2016</span><span class="dot"></span><span>1 min read</span></div>
+        </div>
+      </div><div class="post-row">
+        <div>
+          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Blog</div>
+          <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
+            <a href="posts/why-innovation-challenges-us-2.html">Why innovation challenges us</a></div>
+          <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">Through evolution our brains have developed to recognise and assimilate patterns as shorthand for dealing with what we perceive…</div>
+          <div class="card-meta"><span>Jun 11, 2015</span><span class="dot"></span><span>1 min read</span></div>
+        </div>
+      </div><div class="post-row">
+        <div>
+          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Blog</div>
+          <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
+            <a href="posts/getting-the-most-out-of-your-crm-application-2.html">Getting the most out of your CRM application</a></div>
+          <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">Key areas to focus on when implementing or improving a CRM system. What CRM-related problem are you trying to solve? Focus on…</div>
+          <div class="card-meta"><span>Jan 11, 2015</span><span class="dot"></span><span>1 min read</span></div>
+        </div>
+      </div><div class="post-row">
+        <div>
+          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Blog</div>
+          <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
+            <a href="posts/saas-product-discontinuation-a-growing-risk.html">SaaS product discontinuation, a growing risk</a></div>
+          <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">While there are clear benefits in using Software-as-a-Service (SaaS) products one of the key risks relates to service…</div>
+          <div class="card-meta"><span>Nov 11, 2013</span><span class="dot"></span><span>1 min read</span></div>
+        </div>
+      </div><div class="post-row">
+        <div>
+          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Blog</div>
+          <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
+            <a href="posts/crm-showdown-2.html">CRM Showdown</a></div>
+          <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">CRM platforms are notoriously difficult to compare. Each has the core marketing, sales and service functionality but there are…</div>
+          <div class="card-meta"><span>Jun 1, 2012</span><span class="dot"></span><span>3 min read</span></div>
+        </div>
+      </div><div class="post-row">
+        <div>
+          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Blog</div>
+          <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
+            <a href="posts/protection-of-personal-information-and-cloud-computing.html">Protection of personal information and cloud computing</a></div>
+          <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">The promulgation of the Protection of Personal Information Bill (PPI) is imminent. The PPI Act aims to bring SA in line with the…</div>
+          <div class="card-meta"><span>Dec 19, 2011</span><span class="dot"></span><span>1 min read</span></div>
+        </div>
+      </div><div class="post-row">
+        <div>
+          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Blog</div>
+          <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
+            <a href="posts/gartner-cutting-through-the-cloud-hype.html">Gartner: cutting through the cloud hype</a></div>
+          <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">Great overview on making sense of your cloud strategy. Here are some notable sound bites: Gartner&#x27;s definition of cloud…</div>
+          <div class="card-meta"><span>Oct 18, 2011</span><span class="dot"></span><span>1 min read</span></div>
+        </div>
+      </div><div class="post-row">
+        <div>
+          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Blog</div>
+          <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
+            <a href="posts/top-10-benefits-of-crm-for-salespeople.html">Top 10 benefits of CRM for salespeople</a></div>
+          <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">CRM solutions often suffer from resistance to adoption. There are many reasons for this. This blog post from Lee Novak covers the…</div>
+          <div class="card-meta"><span>Oct 8, 2011</span><span class="dot"></span><span>1 min read</span></div>
+        </div>
+      </div><div class="post-row">
+        <div>
+          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Blog</div>
+          <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
+            <a href="posts/saas-challenges.html">Saas challenges</a></div>
+          <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">In SA the main Saas obstacles are: Off-shoring of personal data where a global saas provide is used. This raises privacy issues,…</div>
+          <div class="card-meta"><span>Aug 24, 2011</span><span class="dot"></span><span>2 min read</span></div>
+        </div>
+      </div><div class="post-row">
+        <div>
+          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Blog</div>
+          <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
+            <a href="posts/native-app-killer.html">(Native) app killer</a></div>
+          <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">I’ve never been a great fan of native device apps. They go against the grain of pure browser-based apps, introduce cross-platform…</div>
+          <div class="card-meta"><span>Aug 12, 2011</span><span class="dot"></span><span>2 min read</span></div>
+        </div>
+      </div><div class="post-row">
+        <div>
+          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Blog</div>
+          <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
+            <a href="posts/managing-change-in-a-saas-environment.html">Managing change in a SaaS environment</a></div>
+          <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">Migrating applications to the cloud poses a particular set of change management challenges for organisations. The many benefits…</div>
+          <div class="card-meta"><span>Apr 20, 2010</span><span class="dot"></span><span>1 min read</span></div>
+        </div>
+      </div><div class="post-row">
+        <div>
+          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Blog</div>
+          <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
+            <a href="posts/thoughts-on-choosing-a-saas-provider.html">Thoughts on choosing a SaaS provider</a></div>
+          <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">Have been trying to unpack some of my thoughts on Saas and Saas providers. Here&#x27;s the first pass. 1. Are the requirements met by…</div>
+          <div class="card-meta"><span>Apr 26, 2009</span><span class="dot"></span><span>1 min read</span></div>
+        </div>
+      </div><div class="post-row">
+        <div>
+          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Blog</div>
+          <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
+            <a href="posts/saas-adoption.html">SaaS adoption</a></div>
+          <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">For all the benefits of SaaS, enterprise adoption may be hampered by a number of factors. These may vary from region to region…</div>
+          <div class="card-meta"><span>Apr 15, 2009</span><span class="dot"></span><span>1 min read</span></div>
         </div>
       </div>
-
-      <div class="post-row">
-        <div class="post-row-body">
-          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>Implementation</div>
-          <div class="card-title"><a href="#">A New CRM Interface</a></div>
-          <div class="card-meta"><span>2025</span><span class="dot"></span><span>Technology</span></div>
-        </div>
-      </div>
-
     </div>
-
   </main>
-
-  <!-- SIDEBAR -->
   <aside class="sidebar">
-
     <div class="widget">
       <h3>Categories</h3>
-      <ul class="cat-list">
-        <li><a href="#">Featured <span class="count">26</span></a></li>
-        <li><a href="#">CRM <span class="count">20</span></a></li>
-        <li><a href="#">Salesforce How-To <span class="count">16</span></a></li>
-        <li><a href="#">Strategy <span class="count">15</span></a></li>
-        <li><a href="#">Sales Analytics <span class="count">12</span></a></li>
-        <li><a href="#">Reports &amp; Dashboards <span class="count">9</span></a></li>
-        <li><a href="#">Salesforce <span class="count">8</span></a></li>
-        <li><a href="#">Change Management <span class="count">7</span></a></li>
-        <li><a href="#">Implementation <span class="count">6</span></a></li>
-        <li><a href="#">Report Formulas <span class="count">6</span></a></li>
-        <li><a href="#">Vendors <span class="count">5</span></a></li>
-        <li><a href="#">Technology <span class="count">5</span></a></li>
+      <ul class="cat-list"><li><a href="#">Salesforce-How To <span class="count">5</span></a></li>
         <li><a href="#">AI <span class="count">4</span></a></li>
-        <li><a href="#">General <span class="count">4</span></a></li>
-      </ul>
+        <li><a href="#">CRM <span class="count">3</span></a></li>
+        <li><a href="#">General <span class="count">3</span></a></li>
+        <li><a href="#">Technology <span class="count">3</span></a></li>
+        <li><a href="#">Product Ownership <span class="count">2</span></a></li>
+        <li><a href="#">Strategy <span class="count">2</span></a></li>
+        <li><a href="#">Reports &amp; Dashboards <span class="count">2</span></a></li>
+        <li><a href="#">Sales Analytics <span class="count">2</span></a></li>
+        <li><a href="#">Report Formulas <span class="count">1</span></a></li>
+        <li><a href="#">Salesforce <span class="count">1</span></a></li>
+        <li><a href="#">Implementation <span class="count">1</span></a></li>
+        <li><a href="#">Change Management <span class="count">1</span></a></li>
+        <li><a href="#">Vendors <span class="count">1</span></a></li>
+        </ul>
     </div>
-
     <div class="widget">
       <h3>Tags</h3>
-      <div class="tag-cloud">
-        <a href="#">Salesforce</a>
-        <a href="#">CRM</a>
-        <a href="#">Dashboards</a>
-        <a href="#">Reporting</a>
-        <a href="#">AI</a>
-        <a href="#">Big Data</a>
-        <a href="#">Pipeline</a>
-        <a href="#">Forecasting</a>
-        <a href="#">Adoption</a>
-        <a href="#">Analytics</a>
-        <a href="#">Formula Fields</a>
-        <a href="#">Implementation</a>
-      </div>
+      <div class="tag-cloud"><a href="#">Salesforce-How To</a><a href="#">AI</a><a href="#">CRM</a><a href="#">General</a><a href="#">Technology</a><a href="#">Product Ownership</a><a href="#">Strategy</a><a href="#">Reports &amp; Dashboards</a><a href="#">Sales Analytics</a><a href="#">Report Formulas</a><a href="#">Salesforce</a><a href="#">Implementation</a></div>
     </div>
-
     <div class="widget" style="background:#eff6ff;border-color:#bfdbfe;">
       <h3 style="color:#1d4ed8;">About Insightment</h3>
-      <p style="font-size:.875rem;color:#1e40af;line-height:1.7;">
-        Salesforce product ownership &amp; CRM strategy consulting. Helping teams get real value from their CRM investment.
-      </p>
-      <a href="https://insightment.co.za" target="_blank" style="display:inline-block;margin-top:1rem;font-size:.8rem;font-weight:600;color:#1d4ed8;">Visit insightment.co.za →</a>
+      <p style="font-size:.875rem;color:#1e40af;line-height:1.7;">Salesforce product ownership &amp; CRM strategy consulting. Helping teams get real value from their CRM investment.</p>
+      <a href="https://insightment.co.za" target="_blank" style="display:inline-block;margin-top:1rem;font-size:.8rem;font-weight:600;color:#1d4ed8;">Visit insightment.co.za &rarr;</a>
     </div>
-
   </aside>
 </div>
-
-<!-- FOOTER -->
 <footer>
   <div class="footer-inner">
     <div>
@@ -418,10 +396,9 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 Insightment</span>
+    <span>&copy; 2026 Insightment</span>
     <span>Built with GitHub Pages</span>
   </div>
 </footer>
-
 </body>
 </html>

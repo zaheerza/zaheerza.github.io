@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Liberating the UI from the Database &mdash; INSIGHTMENT</title>
+  <title>When Your SaaS Vendor Pulls the Plug: Managing the Risk of Product Discontinuation | INSIGHTMENT</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root { --ink:#111827; --muted:#6b7280; --border:#e5e7eb; --accent:#0f62fe; --accent-bg:#eff6ff; --bg:#ffffff; --surface:#f9fafb; --radius:8px; --font:'Inter', system-ui, -apple-system, sans-serif; }
@@ -131,19 +131,31 @@
   </nav>
 </header>
 <div class="post-header">
-  <div class="post-cats"><span class="post-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96-.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96-.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z"/></svg>AI</span><span class="post-cat">Product Ownership</span></div>
-  <h1>Liberating the UI from the Database</h1>
+  <div class="post-cats"><span class="post-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Blog</span></div>
+  <h1>When Your SaaS Vendor Pulls the Plug: Managing the Risk of Product Discontinuation</h1>
   <div class="post-meta">
-    <span>Feb 24, 2026</span><span class="dot"></span><span>2 min read</span>
+    <span>Nov 11, 2013</span><span class="dot"></span><span>1 min read</span>
   </div>
 </div>
 <div class="article-outer">
   <article class="article-body">
-    <p>There’s clearly a lot happening in the SaaS and AI space, more questions than answers at this point.<br><br>One thing becoming clear to me: the traditional SaaS web app, led by the page- and form-based browser UI, needs to be reconsidered. The UI’s role in a SaaS application (say, a CRM) must be decoupled from the business logic and data model. Architecturally it might already be, but it’s not licensed that way.<br><br>The reason is straightforward: ChatGPT-style conversational interfaces have become (or are rapidly becoming) the norm. Expectations for enterprise applications will follow. It may not be exclusively chat-based, but likely chat-first, with forms and lists served up when needed. A sales rep could start by asking to log a client activity or pipeline opportunity conversationally, then be presented with a form or list as required, rather than starting with multiple forms and fields.<br><br>SaaS vendors are facing their incumbent’s dilemma moment. It’s a matter of time before startups build AI-first enterprise apps—or existing ones deliver enterprise-grade solutions.<br><br>Just as SaaS upended on-prem delivery, conversational AI will loosen the grip of the browser UI as the primary data and reporting entry point.<br><br>We’re already seeing major CRM vendors launch conversational add-ons, but often as premium tiers bolted onto existing licence structures. This means paying for a browser UI your users may barely touch, plus another licence for the conversational AI they actually use. (And the consumption vs. per-seat licensing debate remains unsettled, adding yet more planning and budgeting complexity.)<br><br>Instead, it’s time to liberate the UI from the database. What’s needed: industry-specific data models with a choice of UI integration options (conversational, traditional, or hybrid) mediated by business logic and governance layers. Let customers choose the interface that fits their users and workflows, without being locked into a monolithic licence that bundles everything together.<br><br>(I haven’t addressed agentic AI driving autonomous workflows here. For my money, it’s too early to implement outside of experimentation, the purpose of which would be to understand the tech and its wider impacts on data quality tolerances, process reconfiguration, and skill development. The received wisdom from the (small) sample of actual deployments: data, processes, and skills must be “fixed” first. No mean feat.)</p>
-    <nav class="post-nav"><a href="a-new-crm-interface.html" class="post-nav-link prev">&larr; A new CRM interface</a></nav>
+    While there are clear benefits in using Software-as-a-Service (SaaS) products one of the key risks relates to service discontinuation i.e. when a SaaS vendor stops providing the online software service.
+
+This happens occasionally and not even the large vendors are immune. After reportedly paying around $30m for do.com <a href="http://techcrunch.com/2013/10/27/salesforce-coms-odd-decision-to-close-do-com/">Salesforce.com is discontinuing the task management software offering.</a> Even Google has discontinued a number of products albeit mostly of the free to consumer market variety.
+
+This is not altogether unexpected, especially when the software is acquired; as strategies change, financial viability is not achieved, integration into the core product suite is not clear-cut, the value proposition is no longer compelling or there is company culture mismatch to name a few. This is, of course, of little consolation to customers.
+
+In most cases there is either a data export function or one will be made available to ease the transition to an alternative service. The time and effort of identifying an alternative, mapping and migrating the data, re-training, etc still remains.
+
+Migrating from one software product to another, SaaS or on-premise, has always been challenging. As the SaaS market matures and larger investments are made in SaaS offerings, how will vendors, and the industry, react to allaying these fears?
+
+Or does it remain a case of caveat emptor?
+
+<em>Zaheer Ismail</em>
+    <nav class="post-nav"><a href="crm-platform-showdown-salesforce-dynamics-oracle-sap-sugarcrm.html" class="post-nav-link prev">CRM Platform Showdown: Comparing Salesforce, Dynamics, Oracle, SAP and SugarCRM</a><a href="nine-questions-for-crm-go-live.html" class="post-nav-link next">Nine Questions to Ask Before and After Your CRM Go-Live</a></nav>
   </article>
   <aside class="sidebar">
-    <div class="widget"><h3>Related</h3><ul class="cat-list"><li><a href="a-new-crm-interface.html">A new CRM interface</a></li><li><a href="big-data-and-artificial-intelligence.html">Big data and Artificial intelligence</a></li><li><a href="detecting-patterns.html">Detecting patterns</a></li></ul></div>
+    <div class="widget"><h3>Related</h3><ul class="cat-list"><li><a href="it-is-what-it-is-on-policy-failure-and-accountability.html">"It Is What It Is" Is Never Good Enough: On Policy Failure and Abdication of Responsibility</a></li><li><a href="why-our-brains-resist-innovation.html">Why Our Brains Resist Innovation: Pattern Recognition and the Cost of Experience</a></li><li><a href="nine-questions-for-crm-go-live.html">Nine Questions to Ask Before and After Your CRM Go-Live</a></li><li><a href="crm-platform-showdown-salesforce-dynamics-oracle-sap-sugarcrm.html">CRM Platform Showdown: Comparing Salesforce, Dynamics, Oracle, SAP and SugarCRM</a></li></ul></div>
     <div class="widget">
       <h3>Categories</h3>
       <ul class="cat-list"><li><a href='../index.html?cat=Blog'>Blog <span class='count'>13</span></a></li><li><a href='../index.html?cat=Salesforce-How+To'>Salesforce-How To <span class='count'>5</span></a></li><li><a href='../index.html?cat=AI'>AI <span class='count'>4</span></a></li><li><a href='../index.html?cat=CRM'>CRM <span class='count'>3</span></a></li><li><a href='../index.html?cat=General'>General <span class='count'>3</span></a></li><li><a href='../index.html?cat=Technology'>Technology <span class='count'>3</span></a></li><li><a href='../index.html?cat=Product+Ownership'>Product Ownership <span class='count'>2</span></a></li><li><a href='../index.html?cat=Reports+%26+Dashboards'>Reports &amp; Dashboards <span class='count'>2</span></a></li><li><a href='../index.html?cat=Sales+Analytics'>Sales Analytics <span class='count'>2</span></a></li><li><a href='../index.html?cat=Strategy'>Strategy <span class='count'>2</span></a></li><li><a href='../index.html?cat=Change+Management'>Change Management <span class='count'>1</span></a></li><li><a href='../index.html?cat=Implementation'>Implementation <span class='count'>1</span></a></li><li><a href='../index.html?cat=Report+Formulas'>Report Formulas <span class='count'>1</span></a></li><li><a href='../index.html?cat=Salesforce'>Salesforce <span class='count'>1</span></a></li><li><a href='../index.html?cat=Vendors'>Vendors <span class='count'>1</span></a></li></ul>

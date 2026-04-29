@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The do’s and don&#x27;ts of Salesforce product ownership &mdash; INSIGHTMENT</title>
+  <title>Why Our Brains Resist Innovation: Pattern Recognition and the Cost of Experience | INSIGHTMENT</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root { --ink:#111827; --muted:#6b7280; --border:#e5e7eb; --accent:#0f62fe; --accent-bg:#eff6ff; --bg:#ffffff; --surface:#f9fafb; --radius:8px; --font:'Inter', system-ui, -apple-system, sans-serif; }
@@ -131,89 +131,25 @@
   </nav>
 </header>
 <div class="post-header">
-  <div class="post-cats"><span class="post-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>Product Ownership</span></div>
-  <h1>The do’s and don&#x27;ts of Salesforce product ownership</h1>
+  <div class="post-cats"><span class="post-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Blog</span></div>
+  <h1>Why Our Brains Resist Innovation: Pattern Recognition and the Cost of Experience</h1>
   <div class="post-meta">
-    <span>Nov 7, 2022</span><span class="dot"></span><span>8 min read</span>
+    <span>Jun 11, 2015</span><span class="dot"></span><span>1 min read</span>
   </div>
 </div>
 <div class="article-outer">
   <article class="article-body">
-    <p>I’ve been working in the CRM and related domains in the Financial Services sector for close on two decades.&nbsp; I spent most of this time implementing and managing Salesforce instances or, in Salesforce.com parlance, organisations. These are my reflections on implementing and embedding Salesforce in large enterprises.</p>
+    Through evolution our brains have developed to recognise and assimilate patterns as shorthand for dealing with what we perceive as reality. As we go through life our experiences are hardwired as knowledge to allow us to react to external happenings without having to rethink our responses to every similar event which we have already have experienced.
 
-<p><strong>Democratisation of software</strong></p>
+Innovation requires us to forget, in a sense, what we know and look at problem solving from a new and fresh perspective. This is similar to children who are 'unencumbered' by the hardwired and previously assimilated responses which often prevent us from identifying or appreciating novel innovative solutions.
 
-<p>The original attraction of Salesforce.com remains compelling. From a technology-employment perspective, this has&nbsp; two dimensions.&nbsp; The first is delivering software via cloud computing, and accessing the application in a browser. The second is the focus on configuration rather than coding. This is&nbsp; especially attractive to a business or power user.</p>
+Zaheer Ismail
 
-<p>It is now readily accepted that software can be accessed via the cloud in a browser. Ten years ago, this was considered a light option. The on-premise client server model still reigned supreme. As web-friendly frameworks have developed, the cloud to browser model is now standard. It has freed us from on-premise servers and burdensome patches and upgrades, as well client-side application installations.</p>
-
-<p>Salesforce has continued developing its clicks-not-code model, also known as declarative programming.. Power users or Salesforce administrators without coding knowledge can develop applications without heavy IT development. But there is still a need for analysis and design, especially relating to the data model and process flows. The generic business super user is usually disinclined to do this or is not aware of its importance.</p>
-
-<p>Without this forethought, the result can be an Excel-esque environment of disconnected apps with misaligned data models.</p>
-
-<p>As apps and features on the Salesforce platform increase in scope, IT governance and deeper technical skills become critical.&nbsp; All the more so when the estate crosses functional and business areas. Even if apps for different areas are built in the same Salesforce organisation, siloed apps may result if there is a lack of alignment, coordination, and collaboration. This must be managed at the business level, followed by the solution architecture level. However, the original value of having no-code or low-code application development remains.</p>
-
-<p>On the downside, there are times when great effort is put into configuration, only to later realise that coding is required, because the feature doesn’t work in the most user-friendly or optimal way with configuration only. This is the so-called declarative cliff. This would have been prevented with comprehensive analysis up-front.</p>
-
-<p>Sometimes the requirement evolves past the point where configuration only is good enough. Sometimes business needs change beyond what reasonably could have been anticipated. Then we need to code. Many initiatives, especially as business and process complexity increases, will follow this path.</p>
-
-<p>Salesforce continues to push the cliff out with continual no-code and low-code extensions to the Lightning Platform. In theory, this means that more and more can be done with minimal coding. Be sure to check the scalability and robustness of the newly added features.</p>
-
-<p><strong>User Adoption</strong></p>
-
-<p>Read any paper on enterprise software adoption, and you’ll see that executive sponsorship always features. But&nbsp; players are also critical. In the case of B2B sales force automation, these include sales and account team heads, influencers such as finance directors / managers, and business champions and ambassadors.</p>
-
-<p>Executive sponsors are critical for vision, funding, and maintaining momentum after implementation. For day-to-day usage and adoption, motivation by team heads and success stories narrated by respected influencers are far more effective. The initial drive is by the executive sponsor, but team management must instil the discipline. Adoption will lag if your manager lets you get away with not updating your pipeline forecasts in the CRM application.</p>
-
-<p>Ongoing adoption discipline greatly benefits from success stories, which provide social proof of success. Social proof is a powerful motivator. Nobody enjoys being outshone by their peers.</p>
-
-<p>The final piece of the puzzle is a regular review of user adoption metric, and changes in adoption strategies, where necessary.</p>
-
-<p><strong>Data, data, data</strong></p>
-
-<p>The credibility of any CRM application and the decision support value it generates relies heavily on data quality. This important aspect is often under-weighted. The result is incorrect data mapping or duplicate data ingestion, which damages credibility and takes a long time to recover from. The key to prevent this is to consider all points of entry, including direct user input, spreadsheet imports, and source system integration. All of these streams can pollute data.</p>
-
-<p>For each of these streams, anticipate the likely sources of dirty data. Put strategies in place to eliminate or reduce the flow of dirty data. For example, if you have validation rules in place when users capture data, be sure to execute them, even when importing data or integrating with other data sources.</p>
-
-<p>This is important especially when importing data. There is usually a need to import data to prevent recapturing the data. Depending on project pressures and timelines, it may be tempting to import the data as it is from the source system. Don’t do this unless you have done at least some level of clean-up and field mapping, especially when matching records to static reference source data such as client or customer names, where unique identifiers play such a critical role.</p>
-
-<p><strong>Manage the change</strong></p>
-
-<p>Organisations have varying levels of complexity and maturity. Maturity, in this context, refers to the level of the discipline of logging business data, as well as the level at which processes which support data capture and required data are embedded in the organisation. It’s part of the culture of the organisation. For instance, do all end users capture their client interactions or do some users “get away” with non-compliance?</p>
-
-<p>Your change management strategy must be based on a realistic assessment of the complexity and maturity of these processes.</p>
-
-<p>Another way to view adoption is to look at it through the lenses of data quality, improved process management, and usability. The first two relate to overall value add, also known as the “what’s in it for me” question. Are the&nbsp; data reliable so that I can make business decisions? Does the CRM help me to do my job? Usability is the oil which reduces the friction of adoption friction. It’s the&nbsp; key to process improvement. You can have the best features, but if they’re not easy to use, adoption suffers.</p>
-
-<p><strong>Focus on key outcomes</strong></p>
-
-<p>It’s tempting to build out every feature request in the service of maximising the value of the Salesforce investment. Especially considering Salesforce is a customer platform and not just a CRM tool. Unless you have adequate budget, resources, and a solid plan, don’t. Even then, it’s not advisable. It’s best to avoid the problems of “change fatigue” and “all things to everyone”. Pick three to five problems to fix, or opportunities to develop. Focus on these and do them well.</p>
-
-<p>Tie these back to the business rationale and measurable benefits to show the value added in the form of making a difference in the lives of end-users. Answer the “what’s in it for me” question, and the value to the sponsor and management will automatically fall into place. It’s important not to do it the other way around. Don’t make it about reporting on metrics. Start with the benefit to individual users.</p>
-
-<p>Focusing on key outcomes also means being process-first rather than data-first. Far too often, the reflex is to add more fields to support new reporting requirements, usually for the sake of expediency,&nbsp; when it should start with the business process and what it means to the end-user, followed by the impact on data model and user interface design.</p>
-
-<p>Focusing on a prioritised set of initiatives does not preclude you from extending functionality over time. It does, however, give you the time and space to do a few things well and to build credibility as you continue to show the increasing value of the Salesforce investment.</p>
-
-<p><strong>Know your platform from your framework</strong></p>
-
-<p>Salesforce is a platform, and not a framework. The platform’s utility and power comes from a set of related tools which can be used to extend an existing scaffolding. If your requirements call for a very high level of front-end and UI control, the greater flexibility of a framework might be a better option.</p>
-
-<p>One of the benefits of a platform — and part of the SaaS value proposition — is the continual delivery of new features and tools. For example, Salesforce enhanced its global search function significantly by introducing natural language search and personalised search results. This feature set, branded Einstein Search, was made available at no cost to most licence subscription types, without the client organisation having to do any coding.</p>
-
-<p>While a framework such as the various Javascript options will give you a greater level of control and flexibility, many features and toolsets will have to be coded, even though there may be libraries to tap into.</p>
-
-<p>A key trade-off, then, is the platform’s greater speed of delivery versus the framework’s greater flexibility in delivery.</p>
-
-<p><strong>Conclusion</strong></p>
-
-<p>The return on a CRM software application investment depends on a lot more than delivering the required features. Just as critical to success are decisions made and actions taken to manage how the application is built and which features to focus on, along with user adoption and data quality.</p>
-
-<p>Zaheer Ismail</p>
-    <nav class="post-nav"><a href="getting-the-most-from-trailhead.html" class="post-nav-link prev">&larr; Getting the most from Trailhead</a><a href="parentgroupval-vs-prevgroupval.html" class="post-nav-link next">ParentGroupVal vs PrevGroupVal &rarr;</a></nav>
+Originally published: <b>11 Jan 2015 @ 15:00</b>
+    <nav class="post-nav"><a href="nine-questions-for-crm-go-live.html" class="post-nav-link prev">Nine Questions to Ask Before and After Your CRM Go-Live</a><a href="the-race-to-zero-digital-advertising-revenue-collapse.html" class="post-nav-link next">The Race to Zero: Why Digital Advertising Revenue Is Collapsing and What Could Replace It</a></nav>
   </article>
   <aside class="sidebar">
-    
+    <div class="widget"><h3>Related</h3><ul class="cat-list"><li><a href="it-is-what-it-is-on-policy-failure-and-accountability.html">"It Is What It Is" Is Never Good Enough: On Policy Failure and Abdication of Responsibility</a></li><li><a href="nine-questions-for-crm-go-live.html">Nine Questions to Ask Before and After Your CRM Go-Live</a></li><li><a href="when-your-saas-vendor-pulls-the-plug.html">When Your SaaS Vendor Pulls the Plug: Managing the Risk of Product Discontinuation</a></li><li><a href="crm-platform-showdown-salesforce-dynamics-oracle-sap-sugarcrm.html">CRM Platform Showdown: Comparing Salesforce, Dynamics, Oracle, SAP and SugarCRM</a></li></ul></div>
     <div class="widget">
       <h3>Categories</h3>
       <ul class="cat-list"><li><a href='../index.html?cat=Blog'>Blog <span class='count'>13</span></a></li><li><a href='../index.html?cat=Salesforce-How+To'>Salesforce-How To <span class='count'>5</span></a></li><li><a href='../index.html?cat=AI'>AI <span class='count'>4</span></a></li><li><a href='../index.html?cat=CRM'>CRM <span class='count'>3</span></a></li><li><a href='../index.html?cat=General'>General <span class='count'>3</span></a></li><li><a href='../index.html?cat=Technology'>Technology <span class='count'>3</span></a></li><li><a href='../index.html?cat=Product+Ownership'>Product Ownership <span class='count'>2</span></a></li><li><a href='../index.html?cat=Reports+%26+Dashboards'>Reports &amp; Dashboards <span class='count'>2</span></a></li><li><a href='../index.html?cat=Sales+Analytics'>Sales Analytics <span class='count'>2</span></a></li><li><a href='../index.html?cat=Strategy'>Strategy <span class='count'>2</span></a></li><li><a href='../index.html?cat=Change+Management'>Change Management <span class='count'>1</span></a></li><li><a href='../index.html?cat=Implementation'>Implementation <span class='count'>1</span></a></li><li><a href='../index.html?cat=Report+Formulas'>Report Formulas <span class='count'>1</span></a></li><li><a href='../index.html?cat=Salesforce'>Salesforce <span class='count'>1</span></a></li><li><a href='../index.html?cat=Vendors'>Vendors <span class='count'>1</span></a></li></ul>

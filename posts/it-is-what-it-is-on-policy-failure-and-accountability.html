@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ParentGroupVal vs PrevGroupVal &mdash; INSIGHTMENT</title>
+  <title>"It Is What It Is" Is Never Good Enough: On Policy Failure and Abdication of Responsibility | INSIGHTMENT</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root { --ink:#111827; --muted:#6b7280; --border:#e5e7eb; --accent:#0f62fe; --accent-bg:#eff6ff; --bg:#ffffff; --surface:#f9fafb; --radius:8px; --font:'Inter', system-ui, -apple-system, sans-serif; }
@@ -131,139 +131,27 @@
   </nav>
 </header>
 <div class="post-header">
-  <div class="post-cats"><span class="post-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>Report Formulas</span><span class="post-cat">Reports &amp; Dashboards</span><span class="post-cat">Sales Analytics</span><span class="post-cat">Salesforce-How To</span></div>
-  <h1>ParentGroupVal vs PrevGroupVal</h1>
+  <div class="post-cats"><span class="post-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Blog</span></div>
+  <h1>"It Is What It Is" Is Never Good Enough: On Policy Failure and Abdication of Responsibility</h1>
   <div class="post-meta">
-    <span>Jun 29, 2024</span><span class="dot"></span><span>3 min read</span>
+    <span>Jan 18, 2022</span><span class="dot"></span><span>1 min read</span>
   </div>
 </div>
 <div class="article-outer">
   <article class="article-body">
-    <p>In Salesforce.com Reporting, <code>PARENTGROUPVAL</code> and <code>PREVGROUPVAL</code> are functions used in custom summary formulas within reports to calculate and compare summary values based on grouping levels. These functions are particularly useful in matrix and summary reports, where data is grouped and summarized by different dimensions. </p>
+    <p>Can we stop using this phrase?&nbsp;<br><br>On one hand it is uttered in frustration. It is a clear statement that someone has reached the end of their tether, reached a state of such frustration that they are paralysed and can act no further. And are ultimately resigned to their fate.</p>
 
-<h3 class="wp-block-heading">PARENTGROUPVAL</h3>
+<p>On the other hand it has come to represent a cop-out, an abdication of responsibility. After all, it is easier to say this than to take action.</p>
 
-<p><code>PARENTGROUPVAL</code>&nbsp;is used to reference summary values from a parent grouping level. This function allows you to retrieve the value of a summary field from a parent group relative to the current grouping level.</p>
+<p>It’s not what it is because it just is. It is what it is because someone made a decision that led to it being what it is.</p>
 
-<h4 class="wp-block-heading">Syntax:</h4>
+<p>That decision was based on a policy which was based on a principle that had a good intention behind it. But the implementation was flawed, a bureaucrat flagged it, did not think about the intention behind the policy and blocked it. Now the victim has to backtrack, start over again or figure out a way around it.</p>
 
-<pre class="wp-block-preformatted"><code>PARENTGROUPVAL(summary_field, parent_grouping_level)
-</code></pre>
-
-<ul>
-<li><code>summary_field</code>: The summary field you want to reference (e.g., SUM of Amount, COUNT of Opportunities).</li>
-
-<li><code>parent_grouping_level</code>: The parent grouping level relative to the current level.</li>
-</ul>
-
-<h4 class="wp-block-heading">Example:</h4>
-
-<p>Let's say you have a report summarizing sales data by&nbsp;<strong>Region</strong>&nbsp;and then by&nbsp;<strong>Country</strong>. You want to calculate the percentage of sales each country contributes to its parent region's total sales.</p>
-
-<ol>
-<li><strong>Report Grouping Structure</strong>:
-<ul>
-<li><strong>Parent Group</strong>: Region</li>
-
-<li><strong>Child Group</strong>: Country</li>
-</ul>
-</li>
-
-<li><strong>Summary Field</strong>: SUM of&nbsp;<code>Amount</code></li>
-
-<li><strong>Custom Summary Formula</strong>:<code>SUM(Amount) / PARENTGROUPVAL(SUM(Amount), REGION)</code></li>
-</ol>
-
-<p>In this example:</p>
-
-<ul>
-<li><code>SUM(Amount)</code>&nbsp;calculates the total sales for each country.</li>
-
-<li><code>PARENTGROUPVAL(SUM(Amount), REGION)</code>&nbsp;retrieves the total sales for the parent region.</li>
-
-<li>The formula then calculates the percentage of the total regional sales that each country contributes.</li>
-</ul>
-
-<h3 class="wp-block-heading">PREVGROUPVAL</h3>
-
-<p><code>PREVGROUPVAL</code>&nbsp;is used to reference the value of a summary field from the previous group value at the same grouping level. This function is helpful when you want to compare the current group's value with the previous group's value within the same level.</p>
-
-<h4 class="wp-block-heading">Syntax:</h4>
-
-<pre class="wp-block-preformatted"><code>PREVGROUPVAL(summary_field, grouping_level[, increment])
-</code></pre>
-
-<ul>
-<li><code>summary_field</code>: The summary field you want to reference (e.g., SUM of Amount, COUNT of Opportunities).</li>
-
-<li><code>grouping_level</code>: The grouping level at which to calculate the previous value.</li>
-
-<li><code>increment</code>&nbsp;(optional): An integer indicating how many previous groups to skip (default is 1).</li>
-</ul>
-
-<h4 class="wp-block-heading">Example:</h4>
-
-<p>Assume you have a report summarizing monthly sales data and you want to calculate the month-over-month change in sales.</p>
-
-<ol>
-<li><strong>Report Grouping Structure</strong>:
-<ul>
-<li>Grouping Level: Month</li>
-</ul>
-</li>
-
-<li><strong>Summary Field</strong>: SUM of&nbsp;<code>Amount</code></li>
-
-<li><strong>Custom Summary Formula</strong>:<code>SUM(Amount) - PREVGROUPVAL(SUM(Amount), MONTH)</code></li>
-</ol>
-
-<p>In this example:</p>
-
-<ul>
-<li><code>SUM(Amount)</code>&nbsp;calculates the total sales for the current month.</li>
-
-<li><code>PREVGROUPVAL(SUM(Amount), MONTH)</code>&nbsp;retrieves the total sales for the previous month.</li>
-
-<li>The formula calculates the difference in sales between the current month and the previous month.</li>
-</ul>
-
-<h3 class="wp-block-heading">Key Differences:</h3>
-
-<ul>
-<li><strong>PARENTGROUPVAL</strong>: Used to reference values from a parent grouping level. It's useful for comparing values between different levels of grouping, such as comparing a subgroup's value to its parent group's total.</li>
-
-<li><strong>PREVGROUPVAL</strong>: Used to reference values from the previous group at the same grouping level. It's useful for sequential comparisons within the same level, such as month-over-month or quarter-over-quarter comparisons.</li>
-</ul>
-
-<h3 class="wp-block-heading">Practical Scenarios:</h3>
-
-<ol>
-<li><strong>Using&nbsp;<code>PARENTGROUPVAL</code></strong>:
-<ul>
-<li><strong>Scenario</strong>: You have a sales report grouped by&nbsp;<strong>Region</strong>&nbsp;and then by&nbsp;<strong>Salesperson</strong>. You want to calculate each salesperson’s contribution to their respective region’s total sales.</li>
-
-<li><strong>Formula</strong>:<code>SUM(Amount) / PARENTGROUPVAL(SUM(Amount), REGION)</code></li>
-
-<li><strong>Result</strong>: This formula will show what percentage of the region's total sales each salesperson is responsible for.</li>
-</ul>
-</li>
-
-<li><strong>Using&nbsp;<code>PREVGROUPVAL</code></strong>:
-<ul>
-<li><strong>Scenario</strong>: You have a sales report grouped by&nbsp;<strong>Month</strong>. You want to compare this month’s sales to last month’s sales.</li>
-
-<li><strong>Formula</strong>:<code>SUM(Amount) - PREVGROUPVAL(SUM(Amount), MONTH)</code></li>
-
-<li><strong>Result</strong>: This formula will show the difference in sales between the current month and the previous month.</li>
-</ul>
-</li>
-</ol>
-
-<p>These functions are powerful tools for gaining deeper insights into your data by allowing for sophisticated comparisons and calculations within Salesforce reports.</p>
-    <nav class="post-nav"><a href="the-dos-and-donts-of-salesforce-product-ownership.html" class="post-nav-link prev">&larr; The do’s and don&#x27;ts of Salesforce product ownership</a><a href="a-new-crm-interface.html" class="post-nav-link next">A new CRM interface &rarr;</a></nav>
+<p>There should be a new policy and that policy should force the drafter and signatories of that policy to endure the committees, processes and various forums that result from that policy, to actually experience what it means to follow a procurement process, an expense claim process or a data management process.</p>
+    <nav class="post-nav"><a href="why-listicles-are-the-fast-food-of-ideas.html" class="post-nav-link prev">Why Listicles Are the Fast Food of Ideas: Four Arguments Against Shallow Content</a><a href="salesforce-pipeline-leak-analysis-opportunity-history-reports.html" class="post-nav-link next">Where Does Your Pipeline Leak? Using Salesforce Opportunity History Reports to Find Out</a></nav>
   </article>
   <aside class="sidebar">
-    <div class="widget"><h3>Related</h3><ul class="cat-list"><li><a href="getting-the-most-from-trailhead.html">Getting the most from Trailhead</a></li><li><a href="identifying-sales-pipeline-leakages.html">Identifying sales pipeline leaks</a></li><li><a href="getting-started-with-crm.html">Getting started with CRM</a></li><li><a href="how-ai-aids-productivity-in-crm.html">How AI aids productivity in CRM</a></li></ul></div>
+    <div class="widget"><h3>Related</h3><ul class="cat-list"><li><a href="why-our-brains-resist-innovation.html">Why Our Brains Resist Innovation: Pattern Recognition and the Cost of Experience</a></li><li><a href="nine-questions-for-crm-go-live.html">Nine Questions to Ask Before and After Your CRM Go-Live</a></li><li><a href="when-your-saas-vendor-pulls-the-plug.html">When Your SaaS Vendor Pulls the Plug: Managing the Risk of Product Discontinuation</a></li><li><a href="crm-platform-showdown-salesforce-dynamics-oracle-sap-sugarcrm.html">CRM Platform Showdown: Comparing Salesforce, Dynamics, Oracle, SAP and SugarCRM</a></li></ul></div>
     <div class="widget">
       <h3>Categories</h3>
       <ul class="cat-list"><li><a href='../index.html?cat=Blog'>Blog <span class='count'>13</span></a></li><li><a href='../index.html?cat=Salesforce-How+To'>Salesforce-How To <span class='count'>5</span></a></li><li><a href='../index.html?cat=AI'>AI <span class='count'>4</span></a></li><li><a href='../index.html?cat=CRM'>CRM <span class='count'>3</span></a></li><li><a href='../index.html?cat=General'>General <span class='count'>3</span></a></li><li><a href='../index.html?cat=Technology'>Technology <span class='count'>3</span></a></li><li><a href='../index.html?cat=Product+Ownership'>Product Ownership <span class='count'>2</span></a></li><li><a href='../index.html?cat=Reports+%26+Dashboards'>Reports &amp; Dashboards <span class='count'>2</span></a></li><li><a href='../index.html?cat=Sales+Analytics'>Sales Analytics <span class='count'>2</span></a></li><li><a href='../index.html?cat=Strategy'>Strategy <span class='count'>2</span></a></li><li><a href='../index.html?cat=Change+Management'>Change Management <span class='count'>1</span></a></li><li><a href='../index.html?cat=Implementation'>Implementation <span class='count'>1</span></a></li><li><a href='../index.html?cat=Report+Formulas'>Report Formulas <span class='count'>1</span></a></li><li><a href='../index.html?cat=Salesforce'>Salesforce <span class='count'>1</span></a></li><li><a href='../index.html?cat=Vendors'>Vendors <span class='count'>1</span></a></li></ul>

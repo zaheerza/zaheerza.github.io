@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Leadership Aikido &mdash; INSIGHTMENT</title>
+  <title>Where Does Your Pipeline Leak? Using Salesforce Opportunity History Reports to Find Out | INSIGHTMENT</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root { --ink:#111827; --muted:#6b7280; --border:#e5e7eb; --accent:#0f62fe; --accent-bg:#eff6ff; --bg:#ffffff; --surface:#f9fafb; --radius:8px; --font:'Inter', system-ui, -apple-system, sans-serif; }
@@ -131,107 +131,59 @@
   </nav>
 </header>
 <div class="post-header">
-  <div class="post-cats"><span class="post-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>Change Management</span><span class="post-cat">General</span><span class="post-cat">Strategy</span></div>
-  <h1>Leadership Aikido</h1>
+  <div class="post-cats"><span class="post-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>Reports &amp; Dashboards</span><span class="post-cat">Sales Analytics</span><span class="post-cat">Salesforce</span><span class="post-cat">Salesforce-How To</span></div>
+  <h1>Where Does Your Pipeline Leak? Using Salesforce Opportunity History Reports to Find Out</h1>
   <div class="post-meta">
-    <span>Nov 8, 2017</span><span class="dot"></span><span>2 min read</span>
+    <span>Feb 25, 2022</span><span class="dot"></span><span>1 min read</span>
   </div>
 </div>
 <div class="article-outer">
   <article class="article-body">
-    <p>Have started re-reading a book I picked up almost 20 years ago. It's called Leadership Aikido by John O'Neil. Here are some of the keys points.</p>
+    <p>When assessing lost opportunities it's instructive to review where in the pipeline are opportunities being lost. Put another way we want to know at what sales stages do we experience pipeline leakages.</p>
 
-<p>Old-style industrial-era command and control leadership is not sustainable. He describes he Green Glass Age to reflect the coming together of the environmental concerns and biological advances - the green - with communication and computing power - the glass (glass being the colloquial term for silicon wafers and fibre optics).</p>
+<p>While all sales pipelines will naturally leak (after all you can't win every opportunity) it's important to analyse where and why opportunities are lost. Lost deals point to problems in the sales process depending on where they leak from. These problems could include no emotional connection, information overload, undefined needs, poor on boarding, etc.</p>
 
-<p>The way to the new style of leadership can be understood and learnt by the lessons of a particular form of defensive martial art known as Aikido (the way (Do) of life forces (Ki) in harmony Ai)).</p>
+<p>Opportunities should also not linger in the pipeline for too long. After a certain period the chances of closing an opportunity decrease dramatically and should exit the pipeline anyway. </p>
 
-<p>Leadership is about overcoming internal enemies:</p>
+<p>Using standard Salesforce reports we can develop a view of where in the sales process deal are lost. To do this we will start by creating an Opportunity History Report.</p>
 
-<ul>
-<li>Failing to grow emotionally</li>
-
-<li>Failing to make creative connections</li>
-
-<li>Failing to emphatise</li>
-
-<li>Failing to manage the ego</li>
-
-<li>Failing to overcome alienation and boredom</li>
-</ul>
-
-<p>by mastering these practices:</p>
+<figure class="wp-block-image size-full"><a href="https://insightment.co.za/wp-content/uploads/2022/02/Screen-Shot-2022-02-25-at-18.15.40.png"><img src="https://insightment.co.za/wp-content/uploads/2022/02/Screen-Shot-2022-02-25-at-18.15.40.png" alt="" class="wp-image-21093"/></a></figure>
 
 <ul>
-<li>Cultivate self-knowledge
+<li>Switch to Report Edit mode and select the Filter section</li>
+
+<li>Update the Opportunity Close Date filter to reflect the period under review.</li>
+
+<li>Add a To Stage filter and set it to Closed Lost as we want to analyse lost opportunities</li>
+
+<li>Switch to the Outline section and add the From Stage and To Stage fields (in that order) under Group Rows </li>
+</ul>
+
+<figure class="wp-block-image aligncenter size-full"><a href="https://insightment.co.za/wp-content/uploads/2022/02/Screen-Shot-2022-02-25-at-18.30.29.png"><img src="https://insightment.co.za/wp-content/uploads/2022/02/Screen-Shot-2022-02-25-at-18.30.29.png" alt="" class="wp-image-21097"/></a></figure>
+
 <ul>
-<li>Get creative - usually through the creative arts</li>
-
-<li>Find a passion</li>
-
-<li>Learn from painful experiences</li>
-
-<li>Take time out - quality is more important than quantity; daily meditation or sabbaticals</li>
-
-<li>Launch self-knowledge ventures; have an objective in mind</li>
-
-<li>Heed your dreams</li>
-
-<li>Begin something new</li>
-
-<li>Change one small thing</li>
+<li>Then add a chart to the Report and select the Funnel chart type</li>
 </ul>
-</li>
 
-<li>Practice the paradoxical art of planning
+<figure class="wp-block-image aligncenter size-full"><a href="https://insightment.co.za/wp-content/uploads/2022/02/Screen-Shot-2022-02-25-at-18.36.18.png"><img src="https://insightment.co.za/wp-content/uploads/2022/02/Screen-Shot-2022-02-25-at-18.36.18.png" alt="" class="wp-image-21101"/></a></figure>
+
 <ul>
-<li>Decide on which of the three aikido planning styles matches you and your organisation; amoeba-like, value-centred or holistic</li>
-
-<li>Remember that good planning is flexible to surprises and requires nimbleness</li>
+<li>For readability select the Show Values and Show Percentage chart options</li>
 </ul>
-</li>
 
-<li>Speak the language of mastery
+<figure class="wp-block-image aligncenter size-full"><a href="https://insightment.co.za/wp-content/uploads/2022/02/Screen-Shot-2022-02-25-at-18.34.38.png"><img src="https://insightment.co.za/wp-content/uploads/2022/02/Screen-Shot-2022-02-25-at-18.34.38.png" alt="" class="wp-image-21100"/></a></figure>
+
 <ul>
-<li>Discover the myths that motivate or trouble your constituents</li>
-
-<li>Update or transform disparate myths into one aspirational common story</li>
-
-<li>Find the most powerful, meaningful imagery in that myth</li>
-
-<li>Express those images in practical language</li>
-
-<li>Also, good speakers -
-<ul>
-<li>mirror the thoughts and feelings of their audience</li>
-
-<li>bind their audience to the culture</li>
-
-<li>use their personal presence along with overarching ideas and values to create unity</li>
-
-<li>provide a hopeful vision of the future</li>
-
-<li>share information and never hoard it</li>
-</ul>
-</li>
-</ul>
-</li>
-
-<li>Let values drive your decisions</li>
-
-<li>Turn failures into success</li>
-
-<li>Heed the law of unintended consequences</li>
+<li>This will render a funnel chart showing the stages where opportunities were lost as well as the number of opportunities and the percentage of lost opportunities they represent. </li>
 </ul>
 
-<p>While some of the examples seem to be square-holed to make his various points, as is often the case with books like these, there are useful tools and lessons to be learnt. These include the use of a mandala to reflect on opposing forces which have to be balanced in the leadership journey. Some of the concepts smack of New Agey-ness but it's worth reading through these terms to get to the concrete underlying point.</p>
+<figure class="wp-block-image aligncenter size-full"><a href="https://insightment.co.za/wp-content/uploads/2022/02/Screen-Shot-2022-02-25-at-18.44.00.png"><img src="https://insightment.co.za/wp-content/uploads/2022/02/Screen-Shot-2022-02-25-at-18.44.00.png" alt="" class="wp-image-21106"/></a></figure>
 
-<p>O'Neil is vastly experienced and knowledgeable. Considering it's about 20 years old it stands the test of time and is worth a look.</p>
-
-<p>Zaheer Ismail</p>
-    <nav class="post-nav"><a href="how-ai-aids-productivity-in-crm.html" class="post-nav-link prev">&larr; How AI aids productivity in CRM</a><a href="getting-started-with-crm.html" class="post-nav-link next">Getting started with CRM &rarr;</a></nav>
+<p>There you have it! You can now drill down to the underlying opportunities to assess where in the pipeline the opportunities leak.</p>
+    <nav class="post-nav"><a href="it-is-what-it-is-on-policy-failure-and-accountability.html" class="post-nav-link prev">"It Is What It Is" Is Never Good Enough: On Policy Failure and Abdication of Responsibility</a><a href="beyond-badge-hunting-real-salesforce-skills-from-trailhead.html" class="post-nav-link next">Beyond Badge-Hunting: How to Get Real Salesforce Skills from Trailhead</a></nav>
   </article>
   <aside class="sidebar">
-    
+    <div class="widget"><h3>Related</h3><ul class="cat-list"><li><a href="salesforce-report-formulas-parentgroupval-vs-prevgroupval.html">Salesforce Report Formulas: When to Use PARENTGROUPVAL vs PREVGROUPVAL</a></li><li><a href="beyond-badge-hunting-real-salesforce-skills-from-trailhead.html">Beyond Badge-Hunting: How to Get Real Salesforce Skills from Trailhead</a></li><li><a href="crm-implementation-checklist.html">A Practical CRM Implementation Checklist: From Problem Definition to Change Management</a></li><li><a href="salesforce-einstein-automated-contacts.html">Salesforce Einstein Automated Contacts: Eliminating Manual Contact Entry with AI</a></li></ul></div>
     <div class="widget">
       <h3>Categories</h3>
       <ul class="cat-list"><li><a href='../index.html?cat=Blog'>Blog <span class='count'>13</span></a></li><li><a href='../index.html?cat=Salesforce-How+To'>Salesforce-How To <span class='count'>5</span></a></li><li><a href='../index.html?cat=AI'>AI <span class='count'>4</span></a></li><li><a href='../index.html?cat=CRM'>CRM <span class='count'>3</span></a></li><li><a href='../index.html?cat=General'>General <span class='count'>3</span></a></li><li><a href='../index.html?cat=Technology'>Technology <span class='count'>3</span></a></li><li><a href='../index.html?cat=Product+Ownership'>Product Ownership <span class='count'>2</span></a></li><li><a href='../index.html?cat=Reports+%26+Dashboards'>Reports &amp; Dashboards <span class='count'>2</span></a></li><li><a href='../index.html?cat=Sales+Analytics'>Sales Analytics <span class='count'>2</span></a></li><li><a href='../index.html?cat=Strategy'>Strategy <span class='count'>2</span></a></li><li><a href='../index.html?cat=Change+Management'>Change Management <span class='count'>1</span></a></li><li><a href='../index.html?cat=Implementation'>Implementation <span class='count'>1</span></a></li><li><a href='../index.html?cat=Report+Formulas'>Report Formulas <span class='count'>1</span></a></li><li><a href='../index.html?cat=Salesforce'>Salesforce <span class='count'>1</span></a></li><li><a href='../index.html?cat=Vendors'>Vendors <span class='count'>1</span></a></li></ul>

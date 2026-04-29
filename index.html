@@ -41,6 +41,11 @@
     .cat-list li a:hover { background: var(--border); }
     .cat-list .count { background: var(--border); color: var(--muted); font-size: .7rem; font-weight: 600; padding: .1rem .45rem; border-radius: 10px; }
     @media (max-width: 900px) { .nav-links, .nav-search { display: none; } .nav-hamburger { display: block; } .footer-inner { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 900px) {
+      .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 60px; left: 0; right: 0; background: var(--bg); border-bottom: 1px solid var(--border); padding: .5rem 0; z-index: 200; box-shadow: 0 8px 24px rgba(0,0,0,.1); }
+      .nav-links.open li a { padding: .5rem 1.5rem; }
+      .nav-links.open .dropdown-menu { display: block; position: static; box-shadow: none; border: none; min-width: auto; padding: 0 0 .25rem 1rem; }
+    }
     @media (max-width: 600px) { .footer-inner { grid-template-columns: 1fr; } }
 
 .page-body { max-width: 1200px; margin: 0 auto; padding: 3rem 1.5rem; display: grid; grid-template-columns: 1fr 300px; gap: 3rem; }
@@ -130,7 +135,7 @@
     </div>
     <div class="section-label">Latest Posts</div>
     <div class="post-list">
-      <div class="post-row">
+      <div class="post-row" data-cats="Product Ownership">
         <div>
           <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>Product Ownership</div>
           <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
@@ -138,7 +143,7 @@
           <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">I’ve been working in the CRM and related domains in the Financial Services sector for close on two decades.  I spent most of this…</div>
           <div class="card-meta"><span>Nov 7, 2022</span><span class="dot"></span><span>8 min read</span></div>
         </div>
-      </div><div class="post-row">
+      </div><div class="post-row" data-cats="Salesforce-How To">
         <div>
           <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>Salesforce-How To</div>
           <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
@@ -146,7 +151,7 @@
           <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">Anyone in the Salesforce ecosystem will know about Trailhead. It is a mighty resource but there are some points to note to get…</div>
           <div class="card-meta"><span>Oct 16, 2022</span><span class="dot"></span><span>1 min read</span></div>
         </div>
-      </div><div class="post-row">
+      </div><div class="post-row" data-cats="Reports &amp; Dashboards|Sales Analytics|Salesforce|Salesforce-How To">
         <div>
           <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>Salesforce-How To</div>
           <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
@@ -154,7 +159,7 @@
           <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">When assessing lost opportunities it’s instructive to review where in the pipeline opportunities are being lost. Put another way…</div>
           <div class="card-meta"><span>Feb 25, 2022</span><span class="dot"></span><span>1 min read</span></div>
         </div>
-      </div><div class="post-row">
+      </div><div class="post-row" data-cats="Blog">
         <div>
           <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Blog</div>
           <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
@@ -162,7 +167,7 @@
           <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">Can we stop using this phrase?  On one hand it is uttered in frustration. It is a clear statement that someone has reached the…</div>
           <div class="card-meta"><span>Jan 18, 2022</span><span class="dot"></span><span>1 min read</span></div>
         </div>
-      </div><div class="post-row">
+      </div><div class="post-row" data-cats="General">
         <div>
           <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>General</div>
           <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
@@ -170,7 +175,7 @@
           <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">Listicles (a portmanteau of list and article) appear to be useful. They provide quick bites of useful information in an easily…</div>
           <div class="card-meta"><span>Jan 11, 2022</span><span class="dot"></span><span>1 min read</span></div>
         </div>
-      </div><div class="post-row">
+      </div><div class="post-row" data-cats="AI|Technology">
         <div>
           <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96-.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96-.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z"/></svg>AI</div>
           <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
@@ -178,7 +183,7 @@
           <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">Harnessing massive volumes of data and developing predictive and prescriptive models to beat out the competition or adversaries…</div>
           <div class="card-meta"><span>Jul 31, 2021</span><span class="dot"></span><span>2 min read</span></div>
         </div>
-      </div><div class="post-row">
+      </div><div class="post-row" data-cats="Technology">
         <div>
           <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Technology</div>
           <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
@@ -186,7 +191,7 @@
           <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">Contemporary attitudes towards disruption by new technologies revel in the notion that there is opportunity in uncertainty, in…</div>
           <div class="card-meta"><span>Jan 14, 2019</span><span class="dot"></span><span>10 min read</span></div>
         </div>
-      </div><div class="post-row">
+      </div><div class="post-row" data-cats="AI|General">
         <div>
           <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96-.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96-.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z"/></svg>AI</div>
           <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
@@ -194,7 +199,7 @@
           <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">This is how I imagine a future visit to a radiology department to be when AIs do the diagnostics. You&#x27;ll walk into the radiology…</div>
           <div class="card-meta"><span>Sep 26, 2018</span><span class="dot"></span><span>1 min read</span></div>
         </div>
-      </div><div class="post-row">
+      </div><div class="post-row" data-cats="CRM|Implementation|Salesforce-How To">
         <div>
           <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>Salesforce-How To</div>
           <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
@@ -202,7 +207,7 @@
           <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">1. Pick 3 burning issues to fix / improve or new initiatives to generate value. What is important is having a clear picture of…</div>
           <div class="card-meta"><span>Mar 26, 2018</span><span class="dot"></span><span>1 min read</span></div>
         </div>
-      </div><div class="post-row">
+      </div><div class="post-row" data-cats="Change Management|General|Strategy">
         <div>
           <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>Strategy</div>
           <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
@@ -210,7 +215,7 @@
           <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">Have started re-reading a book I picked up almost 20 years ago. It&#x27;s called Leadership Aikido by John O&#x27;Neil. Here are some of…</div>
           <div class="card-meta"><span>Nov 8, 2017</span><span class="dot"></span><span>2 min read</span></div>
         </div>
-      </div><div class="post-row">
+      </div><div class="post-row" data-cats="CRM|Salesforce-How To|Vendors">
         <div>
           <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>Salesforce-How To</div>
           <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
@@ -218,7 +223,7 @@
           <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">One of the more painful administrative tasks faced by Sales reps and account managers is keeping contact lists up to date. Sure,…</div>
           <div class="card-meta"><span>Jun 28, 2017</span><span class="dot"></span><span>1 min read</span></div>
         </div>
-      </div><div class="post-row">
+      </div><div class="post-row" data-cats="Technology">
         <div>
           <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Technology</div>
           <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
@@ -226,7 +231,7 @@
           <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">Media companies are battling because the price of digital advertising is tending towards zero. Consumers don&#x27;t want to pay for…</div>
           <div class="card-meta"><span>Apr 25, 2016</span><span class="dot"></span><span>1 min read</span></div>
         </div>
-      </div><div class="post-row">
+      </div><div class="post-row" data-cats="Blog">
         <div>
           <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Blog</div>
           <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
@@ -234,7 +239,7 @@
           <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">Through evolution our brains have developed to recognise and assimilate patterns as shorthand for dealing with what we perceive…</div>
           <div class="card-meta"><span>Jun 11, 2015</span><span class="dot"></span><span>1 min read</span></div>
         </div>
-      </div><div class="post-row">
+      </div><div class="post-row" data-cats="Blog">
         <div>
           <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Blog</div>
           <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
@@ -242,7 +247,7 @@
           <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">Key areas to focus on when implementing or improving a CRM system. What CRM-related problem are you trying to solve? Focus on…</div>
           <div class="card-meta"><span>Jan 11, 2015</span><span class="dot"></span><span>1 min read</span></div>
         </div>
-      </div><div class="post-row">
+      </div><div class="post-row" data-cats="Blog">
         <div>
           <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Blog</div>
           <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
@@ -250,7 +255,7 @@
           <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">While there are clear benefits in using Software-as-a-Service (SaaS) products one of the key risks relates to service…</div>
           <div class="card-meta"><span>Nov 11, 2013</span><span class="dot"></span><span>1 min read</span></div>
         </div>
-      </div><div class="post-row">
+      </div><div class="post-row" data-cats="Blog">
         <div>
           <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Blog</div>
           <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
@@ -258,7 +263,7 @@
           <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">CRM platforms are notoriously difficult to compare. Each has the core marketing, sales and service functionality but there are…</div>
           <div class="card-meta"><span>Jun 1, 2012</span><span class="dot"></span><span>3 min read</span></div>
         </div>
-      </div><div class="post-row">
+      </div><div class="post-row" data-cats="Blog">
         <div>
           <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Blog</div>
           <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
@@ -266,7 +271,7 @@
           <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">The promulgation of the Protection of Personal Information Bill (PPI) is imminent. The PPI Act aims to bring SA in line with the…</div>
           <div class="card-meta"><span>Dec 19, 2011</span><span class="dot"></span><span>1 min read</span></div>
         </div>
-      </div><div class="post-row">
+      </div><div class="post-row" data-cats="Blog">
         <div>
           <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Blog</div>
           <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
@@ -274,7 +279,7 @@
           <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">Great overview on making sense of your cloud strategy. Here are some notable sound bites: Gartner&#x27;s definition of cloud…</div>
           <div class="card-meta"><span>Oct 18, 2011</span><span class="dot"></span><span>1 min read</span></div>
         </div>
-      </div><div class="post-row">
+      </div><div class="post-row" data-cats="Blog">
         <div>
           <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Blog</div>
           <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
@@ -282,7 +287,7 @@
           <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">CRM solutions often suffer from resistance to adoption. There are many reasons for this. This blog post from Lee Novak covers the…</div>
           <div class="card-meta"><span>Oct 8, 2011</span><span class="dot"></span><span>1 min read</span></div>
         </div>
-      </div><div class="post-row">
+      </div><div class="post-row" data-cats="Blog">
         <div>
           <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Blog</div>
           <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
@@ -290,7 +295,7 @@
           <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">In SA the main Saas obstacles are: Off-shoring of personal data where a global saas provide is used. This raises privacy issues,…</div>
           <div class="card-meta"><span>Aug 24, 2011</span><span class="dot"></span><span>2 min read</span></div>
         </div>
-      </div><div class="post-row">
+      </div><div class="post-row" data-cats="Blog">
         <div>
           <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Blog</div>
           <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
@@ -298,7 +303,7 @@
           <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">I’ve never been a great fan of native device apps. They go against the grain of pure browser-based apps, introduce cross-platform…</div>
           <div class="card-meta"><span>Aug 12, 2011</span><span class="dot"></span><span>2 min read</span></div>
         </div>
-      </div><div class="post-row">
+      </div><div class="post-row" data-cats="Blog">
         <div>
           <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Blog</div>
           <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
@@ -306,7 +311,7 @@
           <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">Migrating applications to the cloud poses a particular set of change management challenges for organisations. The many benefits…</div>
           <div class="card-meta"><span>Apr 20, 2010</span><span class="dot"></span><span>1 min read</span></div>
         </div>
-      </div><div class="post-row">
+      </div><div class="post-row" data-cats="Blog">
         <div>
           <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Blog</div>
           <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
@@ -314,7 +319,7 @@
           <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">Have been trying to unpack some of my thoughts on Saas and Saas providers. Here&#x27;s the first pass. 1. Are the requirements met by…</div>
           <div class="card-meta"><span>Apr 26, 2009</span><span class="dot"></span><span>1 min read</span></div>
         </div>
-      </div><div class="post-row">
+      </div><div class="post-row" data-cats="Blog">
         <div>
           <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Blog</div>
           <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
@@ -328,25 +333,27 @@
   <aside class="sidebar">
     <div class="widget">
       <h3>Categories</h3>
-      <ul class="cat-list"><li><a href="index.html?cat=Salesforce-How+To">Salesforce-How To <span class="count">5</span></a></li>
+      <ul class="cat-list">
+        <li><a href="index.html?cat=Blog">Blog <span class="count">13</span></a></li>
+        <li><a href="index.html?cat=Salesforce-How+To">Salesforce-How To <span class="count">5</span></a></li>
         <li><a href="index.html?cat=AI">AI <span class="count">4</span></a></li>
         <li><a href="index.html?cat=CRM">CRM <span class="count">3</span></a></li>
         <li><a href="index.html?cat=General">General <span class="count">3</span></a></li>
         <li><a href="index.html?cat=Technology">Technology <span class="count">3</span></a></li>
         <li><a href="index.html?cat=Product+Ownership">Product Ownership <span class="count">2</span></a></li>
-        <li><a href="index.html?cat=Strategy">Strategy <span class="count">2</span></a></li>
         <li><a href="index.html?cat=Reports+%26+Dashboards">Reports &amp; Dashboards <span class="count">2</span></a></li>
         <li><a href="index.html?cat=Sales+Analytics">Sales Analytics <span class="count">2</span></a></li>
+        <li><a href="index.html?cat=Strategy">Strategy <span class="count">2</span></a></li>
+        <li><a href="index.html?cat=Change+Management">Change Management <span class="count">1</span></a></li>
+        <li><a href="index.html?cat=Implementation">Implementation <span class="count">1</span></a></li>
         <li><a href="index.html?cat=Report+Formulas">Report Formulas <span class="count">1</span></a></li>
         <li><a href="index.html?cat=Salesforce">Salesforce <span class="count">1</span></a></li>
-        <li><a href="index.html?cat=Implementation">Implementation <span class="count">1</span></a></li>
-        <li><a href="index.html?cat=Change+Management">Change Management <span class="count">1</span></a></li>
         <li><a href="index.html?cat=Vendors">Vendors <span class="count">1</span></a></li>
         </ul>
     </div>
     <div class="widget">
       <h3>Tags</h3>
-      <div class="tag-cloud"><a href="index.html?cat=Salesforce-How+To">Salesforce-How To</a><a href="index.html?cat=AI">AI</a><a href="index.html?cat=CRM">CRM</a><a href="index.html?cat=General">General</a><a href="index.html?cat=Technology">Technology</a><a href="index.html?cat=Product+Ownership">Product Ownership</a><a href="index.html?cat=Strategy">Strategy</a><a href="index.html?cat=Reports+%26+Dashboards">Reports &amp; Dashboards</a><a href="index.html?cat=Sales+Analytics">Sales Analytics</a><a href="index.html?cat=Report+Formulas">Report Formulas</a><a href="index.html?cat=Salesforce">Salesforce</a><a href="index.html?cat=Implementation">Implementation</a></div>
+      <div class="tag-cloud"><a href="index.html?cat=Blog">Blog</a><a href="index.html?cat=Salesforce-How+To">Salesforce-How To</a><a href="index.html?cat=AI">AI</a><a href="index.html?cat=CRM">CRM</a><a href="index.html?cat=General">General</a><a href="index.html?cat=Technology">Technology</a><a href="index.html?cat=Product+Ownership">Product Ownership</a><a href="index.html?cat=Reports+%26+Dashboards">Reports &amp; Dashboards</a><a href="index.html?cat=Sales+Analytics">Sales Analytics</a><a href="index.html?cat=Strategy">Strategy</a><a href="index.html?cat=Change+Management">Change Management</a><a href="index.html?cat=Implementation">Implementation</a><a href="index.html?cat=Report+Formulas">Report Formulas</a><a href="index.html?cat=Salesforce">Salesforce</a><a href="index.html?cat=Vendors">Vendors</a></div>
     </div>
     <div class="widget" style="background:#eff6ff;border-color:#bfdbfe;">
       <h3 style="color:#1d4ed8;">About Insightment</h3>
@@ -386,6 +393,14 @@
   </div>
 </footer>
 <script>
+(function(){
+  var hb=document.querySelector('.nav-hamburger');
+  var nl=document.querySelector('.nav-links');
+  if(!hb||!nl) return;
+  hb.addEventListener('click',function(e){e.stopPropagation();nl.classList.toggle('open');});
+  document.addEventListener('click',function(){nl.classList.remove('open');});
+  nl.addEventListener('click',function(e){if(e.target.tagName==='A'&&!e.target.closest('.dropdown'))nl.classList.remove('open');});
+})();
 (function() {
   var params = new URLSearchParams(window.location.search);
   var cat = params.get('cat');
@@ -397,11 +412,25 @@
   if (featuredGrid) featuredGrid.style.display = 'none';
   if (labels[1]) labels[1].textContent = cat;
 
+  var anyVisible = false;
   document.querySelectorAll('.post-row').forEach(function(row) {
-    var catEl = row.querySelector('.card-cat');
-    var rowCat = catEl ? catEl.textContent.trim() : '';
-    if (rowCat !== cat) row.style.display = 'none';
+    var cats = (row.dataset.cats || '').replace(/&amp;/g, '&').split('|');
+    if (cats.indexOf(cat) === -1) {
+      row.style.display = 'none';
+    } else {
+      anyVisible = true;
+    }
   });
+
+  if (!anyVisible) {
+    var list = document.querySelector('.post-list');
+    if (list) {
+      var msg = document.createElement('p');
+      msg.style.cssText = 'color:var(--muted);font-size:.95rem;padding:2rem 0;';
+      msg.textContent = 'No posts found in “' + cat + '”.';
+      list.appendChild(msg);
+    }
+  }
 
   document.querySelectorAll('.cat-list a, .tag-cloud a').forEach(function(a) {
     try {

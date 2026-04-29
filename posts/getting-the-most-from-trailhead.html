@@ -82,7 +82,21 @@
     .post-nav-link.next { text-align: right; margin-left: auto; }
     @media (max-width: 900px) { .article-outer { grid-template-columns: 1fr; } .sidebar { display: none; } }
     @media (max-width: 600px) { .post-header { padding: 2rem 1rem; } }
+
+    html[data-theme="dark"] { --ink:#e2e8f0; --muted:#94a3b8; --border:#1e293b; --accent:#60a5fa; --accent-bg:#1e3a5f; --bg:#0f172a; --surface:#1e293b; }
+    html[data-theme="dark"] .site-header { background: rgba(15,23,42,.92); }
+    html[data-theme="dark"] footer { background: #020617; }
+    html[data-theme="dark"] .widget[style*="background:#eff6ff"] { background: #0f2744 !important; border-color: #1d4ed8 !important; }
+    html[data-theme="dark"] .widget[style*="background:#eff6ff"] h3 { color: #93c5fd !important; }
+    html[data-theme="dark"] .widget[style*="background:#eff6ff"] p { color: #bfdbfe !important; }
+    html[data-theme="dark"] .widget[style*="background:#eff6ff"] a { color: #93c5fd !important; }
+    .dark-toggle { background: none; border: 1px solid var(--border); border-radius: var(--radius); padding: .3rem .45rem; cursor: pointer; color: var(--muted); display: flex; align-items: center; transition: color .15s, border-color .15s; margin-left: .5rem; }
+    .dark-toggle:hover { color: var(--ink); border-color: var(--ink); }
+    .dark-toggle .icon-sun { display: none; }
+    html[data-theme="dark"] .dark-toggle .icon-sun { display: block; }
+    html[data-theme="dark"] .dark-toggle .icon-moon { display: none; }
   </style>
+  <script>(function(){var t=localStorage.getItem('theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');})();</script>
 </head>
 <body>
 <header class="site-header">
@@ -190,7 +204,15 @@
   if(!hb||!nl) return;
   hb.addEventListener('click',function(e){e.stopPropagation();nl.classList.toggle('open');});
   document.addEventListener('click',function(){nl.classList.remove('open');});
-  nl.addEventListener('click',function(e){if(e.target.tagName==='A'&&!e.target.closest('.dropdown'))nl.classList.remove('open');});
+})();
+(function(){
+  var btn=document.getElementById('dark-toggle');
+  if(!btn) return;
+  btn.addEventListener('click',function(){
+    var next=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';
+    document.documentElement.setAttribute('data-theme',next);
+    localStorage.setItem('theme',next);
+  });
 })();
 </script>
 </body>

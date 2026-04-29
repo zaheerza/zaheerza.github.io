@@ -76,14 +76,13 @@
     { id: 'change',         label: 'Change Management',            type: 'sub' },
     { id: 'vendors',        label: 'Vendors',                      type: 'sub' },
     { id: 'sales-a',        label: 'Sales Analytics',              type: 'sub' },
-    { id: 'p-ui',           label: 'Liberating the UI from the Database', type: 'post', url: '#' },
-    { id: 'p-pipe',         label: 'Identifying Sales Pipeline Leakages', type: 'post', url: '#' },
-    { id: 'p-bigdata',      label: 'Big Data and Artificial Intelligence', type: 'post', url: '#' },
-    { id: 'p-pval',         label: 'PARENTGROUPVAL & PREVGROUPVAL', type: 'post', url: '#' },
-    { id: 'p-joined',       label: 'Joined Reports in Salesforce', type: 'post', url: '#' },
-    { id: 'p-dosdonts',     label: "Do's and Don'ts of Product Ownership", type: 'post', url: '#' },
-    { id: 'p-patterns',     label: 'Detecting Patterns',           type: 'post', url: '#' },
-    { id: 'p-crm',          label: 'A New CRM Interface',          type: 'post', url: '#' },
+    { id: 'p-ui',           label: 'Liberating the UI from the Database', type: 'post', url: './posts/liberating-the-ui-from-the-database.html' },
+    { id: 'p-pipe',         label: 'Identifying Sales Pipeline Leakages', type: 'post', url: './posts/identifying-sales-pipeline-leakages.html' },
+    { id: 'p-bigdata',      label: 'Big Data and Artificial Intelligence', type: 'post', url: './posts/big-data-and-artificial-intelligence.html' },
+    { id: 'p-pval',         label: 'PARENTGROUPVAL & PREVGROUPVAL', type: 'post', url: './posts/parentgroupval-vs-prevgroupval.html' },
+    { id: 'p-dosdonts',     label: "Do's and Don'ts of Product Ownership", type: 'post', url: './posts/the-dos-and-donts-of-salesforce-product-ownership.html' },
+    { id: 'p-patterns',     label: 'Detecting Patterns',           type: 'post', url: './posts/detecting-patterns.html' },
+    { id: 'p-crm',          label: 'A New CRM Interface',          type: 'post', url: './posts/a-new-crm-interface.html' },
   ];
 
   const EDGES = [
@@ -95,7 +94,7 @@
     ['ai', 'p-ui'], ['ai', 'p-bigdata'], ['ai', 'p-patterns'],
     ['sales-a', 'p-pipe'],
     ['howto', 'p-pval'], ['formulas', 'p-pval'],
-    ['reports', 'p-joined'],
+    ['reports', 'p-pval'],
     ['ownership', 'p-dosdonts'], ['crm', 'p-dosdonts'],
     ['implementation', 'p-crm'],
   ];

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>INSIGHTMENT &mdash; Salesforce &amp; CRM Strategy</title>
+  <title>INSIGHTMENT &mdash; Ideas on AI, CRM, SaaS, Philosophy &amp; More</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root { --ink:#111827; --muted:#6b7280; --border:#e5e7eb; --accent:#0f62fe; --accent-bg:#eff6ff; --bg:#ffffff; --surface:#f9fafb; --radius:8px; --font:'Inter', system-ui, -apple-system, sans-serif; }
@@ -82,6 +82,17 @@
     .dark-toggle .icon-sun { display: none; }
     html[data-theme="dark"] .dark-toggle .icon-sun { display: block; }
     html[data-theme="dark"] .dark-toggle .icon-moon { display: none; }
+
+    .authorship-badge { font-size: .7rem; font-weight: 600; letter-spacing: .03em; padding: .15rem .5rem; border-radius: 4px; }
+    .authorship-badge.assisted { color: #d97706; background: #fef3c7; border: 1px solid #fde68a; }
+    .authorship-badge.generated { color: #7c3aed; background: #ede9fe; border: 1px solid #ddd6fe; }
+    .status-badge { font-size: .65rem; font-weight: 600; letter-spacing: .04em; padding: .15rem .45rem; border-radius: 10px; text-transform: uppercase; }
+    .status-badge.seedling { color: #065f46; background: #d1fae5; border: 1px solid #a7f3d0; }
+    .status-badge.growing { color: #1e40af; background: #dbeafe; border: 1px solid #bfdbfe; }
+    html[data-theme="dark"] .authorship-badge.assisted { color: #fbbf24; background: #451a03; border-color: #92400e; }
+    html[data-theme="dark"] .authorship-badge.generated { color: #c4b5fd; background: #2e1065; border-color: #4c1d95; }
+    html[data-theme="dark"] .status-badge.seedling { color: #6ee7b7; background: #064e3b; border-color: #065f46; }
+    html[data-theme="dark"] .status-badge.growing { color: #93c5fd; background: #1e3a5f; border-color: #1e40af; }
   </style>
   <script>(function(){var t=localStorage.getItem('theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');})();</script>
 </head>
@@ -91,25 +102,25 @@
     <div class="logo"><a href="index.html">INSIGHT<span>MENT</span></a></div>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
-      <li class="dropdown"><a href="#">Salesforce &#9662;</a>
+      <li class="dropdown"><a href="#">Professional &#9662;</a>
         <ul class="dropdown-menu">
-          <li><a href="index.html?cat=Salesforce-How+To">How-To Guides</a></li>
-          <li><a href="index.html?cat=Implementation">Implementation</a></li>
-          <li><a href="index.html?cat=Product+Ownership">Product Ownership</a></li>
+          <li><a href="index.html?cat=ai-and-machine-learning">AI &amp; Machine Learning</a></li>
+          <li><a href="index.html?cat=crm-and-salesforce">CRM &amp; Salesforce</a></li>
+          <li><a href="index.html?cat=saas-and-product-thinking">SaaS &amp; Product Thinking</a></li>
         </ul></li>
-      <li class="dropdown"><a href="#">Strategy &#9662;</a>
+      <li class="dropdown"><a href="#">Ideas &#9662;</a>
         <ul class="dropdown-menu">
-          <li><a href="index.html?cat=CRM+Strategy">CRM Strategy</a></li>
-          <li><a href="index.html?cat=Change+Management">Change Management</a></li>
-          <li><a href="index.html?cat=Vendors">Vendors</a></li>
+          <li><a href="index.html?cat=islamic-theology">Islamic Theology</a></li>
+          <li><a href="index.html?cat=philosophy">Philosophy</a></li>
+          <li><a href="index.html?cat=writing-and-craft">Writing &amp; Craft</a></li>
         </ul></li>
-      <li class="dropdown"><a href="#">Analytics &#9662;</a>
+      <li class="dropdown"><a href="#">Personal &#9662;</a>
         <ul class="dropdown-menu">
-          <li><a href="index.html?cat=Sales+Analytics">Sales Analytics</a></li>
-          <li><a href="index.html?cat=Reports+%26+Dashboards">Reports &amp; Dashboards</a></li>
-          <li><a href="index.html?cat=Report+Formulas">Report Formulas</a></li>
+          <li><a href="index.html?cat=canadian-finance">Canadian Finance</a></li>
+          <li><a href="index.html?cat=side-projects">Side Projects</a></li>
+          <li><a href="index.html?cat=notes">Notes</a></li>
         </ul></li>
-      <li><a href="index.html?cat=AI">AI &amp; Tech</a></li>
+      <li><a href="categories.html">All Topics</a></li>
       <li><a href="https://insightment.co.za" target="_blank">About</a></li>
       <li><a href="explore.html" style="color:var(--accent);">Explore &#8599;</a></li>
     </ul>
@@ -123,7 +134,7 @@
     <div class="featured-grid">
       <div class="card large">
         <div class="card-body">
-          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96-.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96-.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z"/></svg>AI</div>
+          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96-.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96-.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z"/></svg>AI &amp; Machine Learning</div>
           <div class="card-title"><a href="posts/saas-incumbents-dilemma-conversational-ai-vs-web-forms.html">The SaaS Incumbent's Dilemma: Why Conversational AI Will Replace the Web Form</a></div>
           <div class="card-excerpt">There’s clearly a lot happening in the SaaS and AI space, more questions than answers at this point. One thing becoming clear to me: the traditional SaaS web app, led by the page- and form-based…</div>
           <div class="card-meta"><span>Feb 24, 2026</span><span class="dot"></span><span>2 min read</span></div>
@@ -132,14 +143,14 @@
       <div style="display:flex;flex-direction:column;gap:1.5rem;">
         <div class="card">
           <div class="card-body">
-            <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96-.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96-.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z"/></svg>AI</div>
+            <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96-.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96-.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z"/></svg>AI &amp; Machine Learning</div>
             <div class="card-title"><a href="posts/chat-first-crm-with-claude-and-mcp.html">From Web Forms to Conversation: Building a Chat-First CRM with Claude and MCP</a></div>
             <div class="card-excerpt">Ever since ChatGPT (and the underlying LLM) appeared, many of us have wondered when an LLM-powered chat…</div>
             <div class="card-meta"><span>Jun 19, 2025</span></div>
           </div>
         </div><div class="card">
           <div class="card-body">
-            <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>Salesforce-How To</div>
+            <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>CRM &amp; Salesforce</div>
             <div class="card-title"><a href="posts/salesforce-report-formulas-parentgroupval-vs-prevgroupval.html">Salesforce Report Formulas: When to Use PARENTGROUPVAL vs PREVGROUPVAL</a></div>
             <div class="card-excerpt">In Salesforce.com Reporting, PARENTGROUPVAL and PREVGROUPVAL are functions used in custom summary formulas…</div>
             <div class="card-meta"><span>Jun 29, 2024</span></div>
@@ -149,193 +160,193 @@
     </div>
     <div class="section-label">Latest Posts</div>
     <div class="post-list">
-      <div class="post-row" data-cats="Product Ownership">
+      <div class="post-row" data-cats="crm-and-salesforce">
         <div>
-          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>Product Ownership</div>
+          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>CRM &amp; Salesforce</div>
           <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
             <a href="posts/two-decades-of-salesforce-enterprise-crm-product-ownership.html">Two Decades of Salesforce: Lessons in Enterprise CRM Product Ownership</a></div>
           <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">I’ve been working in the CRM and related domains in the Financial Services sector for close on two decades.  I spent most of this…</div>
           <div class="card-meta"><span>Nov 7, 2022</span><span class="dot"></span><span>8 min read</span></div>
         </div>
-      </div><div class="post-row" data-cats="Salesforce-How To">
+      </div><div class="post-row" data-cats="crm-and-salesforce">
         <div>
-          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>Salesforce-How To</div>
+          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>CRM &amp; Salesforce</div>
           <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
             <a href="posts/beyond-badge-hunting-real-salesforce-skills-from-trailhead.html">Beyond Badge-Hunting: How to Get Real Salesforce Skills from Trailhead</a></div>
           <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">Anyone in the Salesforce ecosystem will know about Trailhead. It is a mighty resource but there are some points to note to get…</div>
           <div class="card-meta"><span>Oct 16, 2022</span><span class="dot"></span><span>1 min read</span></div>
         </div>
-      </div><div class="post-row" data-cats="Reports &amp; Dashboards|Sales Analytics|Salesforce|Salesforce-How To">
+      </div><div class="post-row" data-cats="crm-and-salesforce">
         <div>
-          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>Salesforce-How To</div>
+          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>CRM &amp; Salesforce</div>
           <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
             <a href="posts/salesforce-pipeline-leak-analysis-opportunity-history-reports.html">Where Does Your Pipeline Leak? Using Salesforce Opportunity History Reports to Find Out</a></div>
           <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">When assessing lost opportunities it’s instructive to review where in the pipeline opportunities are being lost. Put another way…</div>
           <div class="card-meta"><span>Feb 25, 2022</span><span class="dot"></span><span>1 min read</span></div>
         </div>
-      </div><div class="post-row" data-cats="Blog">
+      </div><div class="post-row" data-cats="notes">
         <div>
-          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Blog</div>
+          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Notes</div>
           <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
             <a href="posts/it-is-what-it-is-on-policy-failure-and-accountability.html">"It Is What It Is" Is Never Good Enough: On Policy Failure and Abdication of Responsibility</a></div>
           <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">Can we stop using this phrase?  On one hand it is uttered in frustration. It is a clear statement that someone has reached the…</div>
           <div class="card-meta"><span>Jan 18, 2022</span><span class="dot"></span><span>1 min read</span></div>
         </div>
-      </div><div class="post-row" data-cats="General">
+      </div><div class="post-row" data-cats="writing-and-craft">
         <div>
-          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>General</div>
+          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>Writing &amp; Craft</div>
           <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
             <a href="posts/why-listicles-are-the-fast-food-of-ideas.html">Why Listicles Are the Fast Food of Ideas: Four Arguments Against Shallow Content</a></div>
           <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">Listicles (a portmanteau of list and article) appear to be useful. They provide quick bites of useful information in an easily…</div>
           <div class="card-meta"><span>Jan 11, 2022</span><span class="dot"></span><span>1 min read</span></div>
         </div>
-      </div><div class="post-row" data-cats="AI|Technology">
+      </div><div class="post-row" data-cats="ai-and-machine-learning">
         <div>
-          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96-.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96-.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z"/></svg>AI</div>
+          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96-.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96-.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z"/></svg>AI &amp; Machine Learning</div>
           <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
             <a href="posts/ai-and-big-data-machine-decision-making-ethics.html">AI and Big Data: Why Machine Decision-Making Is Never Morally Neutral</a></div>
           <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">Harnessing massive volumes of data and developing predictive and prescriptive models to beat out the competition or adversaries…</div>
           <div class="card-meta"><span>Jul 31, 2021</span><span class="dot"></span><span>2 min read</span></div>
         </div>
-      </div><div class="post-row" data-cats="Technology">
+      </div><div class="post-row" data-cats="saas-and-product-thinking">
         <div>
-          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Technology</div>
+          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><path d="M2 10h20"/></svg>SaaS &amp; Product Thinking</div>
           <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
             <a href="posts/the-unicorn-paradox-uber-billion-dollar-business-without-profit.html">The Unicorn Paradox: How Uber Built a $100 Billion Business Without Turning a Profit</a></div>
           <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">Contemporary attitudes towards disruption by new technologies revel in the notion that there is opportunity in uncertainty, in…</div>
           <div class="card-meta"><span>Jan 14, 2019</span><span class="dot"></span><span>10 min read</span></div>
         </div>
-      </div><div class="post-row" data-cats="AI|General">
+      </div><div class="post-row" data-cats="ai-and-machine-learning">
         <div>
-          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96-.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96-.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z"/></svg>AI</div>
+          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96-.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96-.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z"/></svg>AI &amp; Machine Learning</div>
           <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
             <a href="posts/ai-pattern-recognition-and-algorithmic-diagnosis.html">When Machines Read the X-Ray: AI Pattern Recognition and the Limits of Algorithmic Diagnosis</a></div>
           <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">This is how I imagine a future visit to a radiology department to be when AIs do the diagnostics. You&#x27;ll walk into the radiology…</div>
           <div class="card-meta"><span>Sep 26, 2018</span><span class="dot"></span><span>1 min read</span></div>
         </div>
-      </div><div class="post-row" data-cats="CRM|Implementation|Salesforce-How To">
+      </div><div class="post-row" data-cats="crm-and-salesforce">
         <div>
-          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>Salesforce-How To</div>
+          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>CRM &amp; Salesforce</div>
           <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
             <a href="posts/crm-implementation-checklist.html">A Practical CRM Implementation Checklist: From Problem Definition to Change Management</a></div>
           <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">1. Pick 3 burning issues to fix / improve or new initiatives to generate value. What is important is having a clear picture of…</div>
           <div class="card-meta"><span>Mar 26, 2018</span><span class="dot"></span><span>1 min read</span></div>
         </div>
-      </div><div class="post-row" data-cats="Change Management|General|Strategy">
+      </div><div class="post-row" data-cats="notes">
         <div>
-          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>Strategy</div>
+          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Notes</div>
           <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
             <a href="posts/leadership-aikido-from-command-and-control-to-harmonious-leadership.html">Leadership Aikido by John O'Neil: Moving from Command-and-Control to Harmonious Leadership</a></div>
           <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">Have started re-reading a book I picked up almost 20 years ago. It&#x27;s called Leadership Aikido by John O&#x27;Neil. Here are some of…</div>
           <div class="card-meta"><span>Nov 8, 2017</span><span class="dot"></span><span>2 min read</span></div>
         </div>
-      </div><div class="post-row" data-cats="CRM|Salesforce-How To|Vendors">
+      </div><div class="post-row" data-cats="crm-and-salesforce">
         <div>
-          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>Salesforce-How To</div>
+          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>CRM &amp; Salesforce</div>
           <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
             <a href="posts/salesforce-einstein-automated-contacts.html">Salesforce Einstein Automated Contacts: Eliminating Manual Contact Entry with AI</a></div>
           <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">One of the more painful administrative tasks faced by Sales reps and account managers is keeping contact lists up to date. Sure,…</div>
           <div class="card-meta"><span>Jun 28, 2017</span><span class="dot"></span><span>1 min read</span></div>
         </div>
-      </div><div class="post-row" data-cats="Technology">
+      </div><div class="post-row" data-cats="saas-and-product-thinking">
         <div>
-          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Technology</div>
+          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><path d="M2 10h20"/></svg>SaaS &amp; Product Thinking</div>
           <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
             <a href="posts/the-race-to-zero-digital-advertising-revenue-collapse.html">The Race to Zero: Why Digital Advertising Revenue Is Collapsing and What Could Replace It</a></div>
           <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">Media companies are battling because the price of digital advertising is tending towards zero. Consumers don&#x27;t want to pay for…</div>
           <div class="card-meta"><span>Apr 25, 2016</span><span class="dot"></span><span>1 min read</span></div>
         </div>
-      </div><div class="post-row" data-cats="Blog">
+      </div><div class="post-row" data-cats="philosophy">
         <div>
-          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Blog</div>
+          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>Philosophy</div>
           <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
             <a href="posts/why-our-brains-resist-innovation.html">Why Our Brains Resist Innovation: Pattern Recognition and the Cost of Experience</a></div>
           <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">Through evolution our brains have developed to recognise and assimilate patterns as shorthand for dealing with what we perceive…</div>
           <div class="card-meta"><span>Jun 11, 2015</span><span class="dot"></span><span>1 min read</span></div>
         </div>
-      </div><div class="post-row" data-cats="Blog">
+      </div><div class="post-row" data-cats="crm-and-salesforce">
         <div>
-          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Blog</div>
+          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>CRM &amp; Salesforce</div>
           <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
             <a href="posts/nine-questions-for-crm-go-live.html">Nine Questions to Ask Before and After Your CRM Go-Live</a></div>
           <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">Key areas to focus on when implementing or improving a CRM system. What CRM-related problem are you trying to solve? Focus on…</div>
           <div class="card-meta"><span>Jan 11, 2015</span><span class="dot"></span><span>1 min read</span></div>
         </div>
-      </div><div class="post-row" data-cats="Blog">
+      </div><div class="post-row" data-cats="saas-and-product-thinking">
         <div>
-          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Blog</div>
+          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><path d="M2 10h20"/></svg>SaaS &amp; Product Thinking</div>
           <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
             <a href="posts/when-your-saas-vendor-pulls-the-plug.html">When Your SaaS Vendor Pulls the Plug: Managing the Risk of Product Discontinuation</a></div>
           <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">While there are clear benefits in using Software-as-a-Service (SaaS) products one of the key risks relates to service…</div>
           <div class="card-meta"><span>Nov 11, 2013</span><span class="dot"></span><span>1 min read</span></div>
         </div>
-      </div><div class="post-row" data-cats="Blog">
+      </div><div class="post-row" data-cats="crm-and-salesforce">
         <div>
-          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Blog</div>
+          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>CRM &amp; Salesforce</div>
           <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
             <a href="posts/crm-platform-showdown-salesforce-dynamics-oracle-sap-sugarcrm.html">CRM Platform Showdown: Comparing Salesforce, Dynamics, Oracle, SAP and SugarCRM</a></div>
           <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">CRM platforms are notoriously difficult to compare. Each has the core marketing, sales and service functionality but there are…</div>
           <div class="card-meta"><span>Jun 1, 2012</span><span class="dot"></span><span>3 min read</span></div>
         </div>
-      </div><div class="post-row" data-cats="Blog">
+      </div><div class="post-row" data-cats="saas-and-product-thinking">
         <div>
-          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Blog</div>
+          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><path d="M2 10h20"/></svg>SaaS &amp; Product Thinking</div>
           <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
             <a href="posts/popi-act-compliance-for-cloud-computing.html">POPI Act Compliance for Cloud Computing: What South African Businesses Need to Know</a></div>
           <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">The promulgation of the Protection of Personal Information Bill (PPI) is imminent. The PPI Act aims to bring SA in line with the…</div>
           <div class="card-meta"><span>Dec 19, 2011</span><span class="dot"></span><span>1 min read</span></div>
         </div>
-      </div><div class="post-row" data-cats="Blog">
+      </div><div class="post-row" data-cats="saas-and-product-thinking">
         <div>
-          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Blog</div>
+          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><path d="M2 10h20"/></svg>SaaS &amp; Product Thinking</div>
           <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
             <a href="posts/gartner-on-cloud-strategy-spotting-cloud-washing.html">Gartner on Cloud Strategy: How to Spot Cloud-Washing and Make Sound Decisions</a></div>
           <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">Great overview on making sense of your cloud strategy. Here are some notable sound bites: Gartner&#x27;s definition of cloud…</div>
           <div class="card-meta"><span>Oct 18, 2011</span><span class="dot"></span><span>1 min read</span></div>
         </div>
-      </div><div class="post-row" data-cats="Blog">
+      </div><div class="post-row" data-cats="crm-and-salesforce">
         <div>
-          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Blog</div>
+          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>CRM &amp; Salesforce</div>
           <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
             <a href="posts/crm-as-a-navigation-system-ten-benefits-for-sales-teams.html">CRM as a Navigation System: Ten Benefits That Overcome Sales Team Resistance</a></div>
           <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">CRM solutions often suffer from resistance to adoption. There are many reasons for this. This blog post from Lee Novak covers the…</div>
           <div class="card-meta"><span>Oct 8, 2011</span><span class="dot"></span><span>1 min read</span></div>
         </div>
-      </div><div class="post-row" data-cats="Blog">
+      </div><div class="post-row" data-cats="saas-and-product-thinking">
         <div>
-          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Blog</div>
+          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><path d="M2 10h20"/></svg>SaaS &amp; Product Thinking</div>
           <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
             <a href="posts/saas-adoption-barriers-south-africa.html">SaaS Adoption Barriers in South Africa: Data Sovereignty, Bandwidth and Vendor Lock-In</a></div>
           <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">In SA the main Saas obstacles are: Off-shoring of personal data where a global saas provide is used. This raises privacy issues,…</div>
           <div class="card-meta"><span>Aug 24, 2011</span><span class="dot"></span><span>2 min read</span></div>
         </div>
-      </div><div class="post-row" data-cats="Blog">
+      </div><div class="post-row" data-cats="saas-and-product-thinking">
         <div>
-          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Blog</div>
+          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><path d="M2 10h20"/></svg>SaaS &amp; Product Thinking</div>
           <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
             <a href="posts/the-case-against-native-mobile-apps.html">The Case Against Native Mobile Apps: Privacy Concerns, Cross-Platform Overhead and the Browser Alternative</a></div>
           <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">I’ve never been a great fan of native device apps. They go against the grain of pure browser-based apps, introduce cross-platform…</div>
           <div class="card-meta"><span>Aug 12, 2011</span><span class="dot"></span><span>2 min read</span></div>
         </div>
-      </div><div class="post-row" data-cats="Blog">
+      </div><div class="post-row" data-cats="crm-and-salesforce">
         <div>
-          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Blog</div>
+          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>CRM &amp; Salesforce</div>
           <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
             <a href="posts/change-management-for-saas-rolling-releases.html">Change Management for SaaS: Adapting to Rolling Releases and Continuous Deployment</a></div>
           <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">Migrating applications to the cloud poses a particular set of change management challenges for organisations. The many benefits…</div>
           <div class="card-meta"><span>Apr 20, 2010</span><span class="dot"></span><span>1 min read</span></div>
         </div>
-      </div><div class="post-row" data-cats="Blog">
+      </div><div class="post-row" data-cats="saas-and-product-thinking">
         <div>
-          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Blog</div>
+          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><path d="M2 10h20"/></svg>SaaS &amp; Product Thinking</div>
           <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
             <a href="posts/five-questions-before-choosing-a-saas-provider.html">Five Questions to Ask Before Committing to a SaaS Provider</a></div>
           <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">Have been trying to unpack some of my thoughts on Saas and Saas providers. Here&#x27;s the first pass. 1. Are the requirements met by…</div>
           <div class="card-meta"><span>Apr 26, 2009</span><span class="dot"></span><span>1 min read</span></div>
         </div>
-      </div><div class="post-row" data-cats="Blog">
+      </div><div class="post-row" data-cats="saas-and-product-thinking">
         <div>
-          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Blog</div>
+          <div class="card-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><path d="M2 10h20"/></svg>SaaS &amp; Product Thinking</div>
           <div class="card-title" style="font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.25rem;">
             <a href="posts/saas-vs-on-premise-total-cost-of-ownership.html">SaaS vs On-Premise: A Total Cost of Ownership Analysis for Enterprise Decision-Makers</a></div>
           <div style="font-size:.83rem;color:var(--muted);margin:.15rem 0 .3rem;">For all the benefits of SaaS, enterprise adoption may be hampered by a number of factors. These may vary from region to region…</div>
@@ -348,31 +359,26 @@
     <div class="widget">
       <h3>Categories</h3>
       <ul class="cat-list">
-        <li><a href="index.html?cat=Blog">Blog <span class="count">13</span></a></li>
-        <li><a href="index.html?cat=Salesforce-How+To">Salesforce-How To <span class="count">5</span></a></li>
-        <li><a href="index.html?cat=AI">AI <span class="count">4</span></a></li>
-        <li><a href="index.html?cat=CRM">CRM <span class="count">3</span></a></li>
-        <li><a href="index.html?cat=General">General <span class="count">3</span></a></li>
-        <li><a href="index.html?cat=Technology">Technology <span class="count">3</span></a></li>
-        <li><a href="index.html?cat=Product+Ownership">Product Ownership <span class="count">2</span></a></li>
-        <li><a href="index.html?cat=Reports+%26+Dashboards">Reports &amp; Dashboards <span class="count">2</span></a></li>
-        <li><a href="index.html?cat=Sales+Analytics">Sales Analytics <span class="count">2</span></a></li>
-        <li><a href="index.html?cat=Strategy">Strategy <span class="count">2</span></a></li>
-        <li><a href="index.html?cat=Change+Management">Change Management <span class="count">1</span></a></li>
-        <li><a href="index.html?cat=Implementation">Implementation <span class="count">1</span></a></li>
-        <li><a href="index.html?cat=Report+Formulas">Report Formulas <span class="count">1</span></a></li>
-        <li><a href="index.html?cat=Salesforce">Salesforce <span class="count">1</span></a></li>
-        <li><a href="index.html?cat=Vendors">Vendors <span class="count">1</span></a></li>
+        <li><a href="index.html?cat=ai-and-machine-learning">AI &amp; Machine Learning <span class="count">4</span></a></li>
+        <li><a href="index.html?cat=crm-and-salesforce">CRM &amp; Salesforce <span class="count">10</span></a></li>
+        <li><a href="index.html?cat=saas-and-product-thinking">SaaS &amp; Product Thinking <span class="count">9</span></a></li>
+        <li><a href="index.html?cat=philosophy">Philosophy <span class="count">1</span></a></li>
+        <li><a href="index.html?cat=writing-and-craft">Writing &amp; Craft <span class="count">1</span></a></li>
+        <li><a href="index.html?cat=notes">Notes <span class="count">2</span></a></li>
+        <li><a href="index.html?cat=islamic-theology">Islamic Theology <span class="count">0</span></a></li>
+        <li><a href="index.html?cat=canadian-finance">Canadian Finance <span class="count">0</span></a></li>
+        <li><a href="index.html?cat=side-projects">Side Projects <span class="count">0</span></a></li>
         </ul>
     </div>
     <div class="widget">
       <h3>Tags</h3>
-      <div class="tag-cloud"><a href="index.html?cat=Blog">Blog</a><a href="index.html?cat=Salesforce-How+To">Salesforce-How To</a><a href="index.html?cat=AI">AI</a><a href="index.html?cat=CRM">CRM</a><a href="index.html?cat=General">General</a><a href="index.html?cat=Technology">Technology</a><a href="index.html?cat=Product+Ownership">Product Ownership</a><a href="index.html?cat=Reports+%26+Dashboards">Reports &amp; Dashboards</a><a href="index.html?cat=Sales+Analytics">Sales Analytics</a><a href="index.html?cat=Strategy">Strategy</a><a href="index.html?cat=Change+Management">Change Management</a><a href="index.html?cat=Implementation">Implementation</a><a href="index.html?cat=Report+Formulas">Report Formulas</a><a href="index.html?cat=Salesforce">Salesforce</a><a href="index.html?cat=Vendors">Vendors</a></div>
+      <div class="tag-cloud"><a href="index.html?cat=ai-and-machine-learning">AI &amp; Machine Learning</a><a href="index.html?cat=crm-and-salesforce">CRM &amp; Salesforce</a><a href="index.html?cat=saas-and-product-thinking">SaaS &amp; Product Thinking</a><a href="index.html?cat=philosophy">Philosophy</a><a href="index.html?cat=writing-and-craft">Writing &amp; Craft</a><a href="index.html?cat=notes">Notes</a><a href="index.html?cat=islamic-theology">Islamic Theology</a><a href="index.html?cat=canadian-finance">Canadian Finance</a><a href="index.html?cat=side-projects">Side Projects</a></div>
     </div>
     <div class="widget" style="background:#eff6ff;border-color:#bfdbfe;">
       <h3 style="color:#1d4ed8;">About Insightment</h3>
-      <p style="font-size:.875rem;color:#1e40af;line-height:1.7;">Salesforce product ownership &amp; CRM strategy consulting. Helping teams get real value from their CRM investment.</p>
-      <a href="https://insightment.co.za" target="_blank" style="display:inline-block;margin-top:1rem;font-size:.8rem;font-weight:600;color:#1d4ed8;">Visit insightment.co.za &rarr;</a>
+      <p style="font-size:.875rem;color:#1e40af;line-height:1.7;">A personal knowledge site at the intersection of AI, CRM, SaaS, Islamic intellectual tradition, philosophy, and writing craft.</p>
+      <a href="categories.html" style="display:inline-block;margin-top:.6rem;font-size:.8rem;font-weight:600;color:#1d4ed8;">Browse all topics &rarr;</a>
+      <a href="https://insightment.co.za" target="_blank" style="display:inline-block;margin-top:.4rem;font-size:.8rem;color:#1d4ed8;">insightment.co.za &#8599;</a>
     </div>
   </aside>
 </div>
@@ -380,16 +386,15 @@
   <div class="footer-inner">
     <div>
       <h4>INSIGHTMENT</h4>
-      <p>Salesforce product ownership &amp; CRM strategy.<br>Insights for teams getting the most from their CRM.</p>
+      <p>A personal knowledge site spanning AI, CRM, SaaS, philosophy, Islamic intellectual tradition, and writing craft.</p>
     </div>
     <div>
       <h4>Topics</h4>
       <ul>
-        <li><a href="index.html?cat=Salesforce-How+To">Salesforce How-To</a></li>
-        <li><a href="index.html?cat=CRM+Strategy">CRM Strategy</a></li>
-        <li><a href="index.html?cat=Sales+Analytics">Sales Analytics</a></li>
-        <li><a href="index.html?cat=Reports+%26+Dashboards">Reports &amp; Dashboards</a></li>
-        <li><a href="index.html?cat=AI">AI &amp; Technology</a></li>
+        <li><a href="index.html?cat=ai-and-machine-learning">AI &amp; Machine Learning</a></li>
+        <li><a href="index.html?cat=crm-and-salesforce">CRM &amp; Salesforce</a></li>
+        <li><a href="index.html?cat=saas-and-product-thinking">SaaS &amp; Product Thinking</a></li>
+        <li><a href="categories.html">All Topics &rarr;</a></li>
       </ul>
     </div>
     <div>

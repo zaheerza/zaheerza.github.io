@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notes &mdash; INSIGHTMENT</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --ink:#111827; --muted:#6b7280; --border:#e5e7eb; --accent:#0f62fe; --accent-bg:#eff6ff; --bg:#ffffff; --surface:#f9fafb; --radius:8px; --font:'Inter', system-ui, -apple-system, sans-serif; }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body { font-family: var(--font); color: var(--ink); background: var(--bg); line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    .site-header { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); }
+    .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; height: 60px; }
+    .logo { font-size: 1.1rem; font-weight: 700; letter-spacing: .04em; }
+    .logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 0; list-style: none; }
+    .nav-links li a { display: block; padding: .5rem 1rem; font-size: .875rem; font-weight: 500; color: var(--muted); border-radius: var(--radius); transition: color .15s, background .15s; }
+    .nav-links li a:hover, .nav-links li a.active { color: var(--ink); background: var(--surface); }
+    .nav-links .dropdown { position: relative; }
+    .nav-links .dropdown-menu { display: none; position: absolute; top: calc(100% + 4px); left: 0; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); min-width: 200px; box-shadow: 0 8px 24px rgba(0,0,0,.08); padding: .5rem 0; list-style: none; }
+    .nav-links .dropdown-menu li a { padding: .5rem 1.25rem; border-radius: 0; color: var(--ink); font-size: .85rem; background: none; }
+    .nav-links .dropdown-menu li a:hover { background: var(--surface); }
+    .nav-links .dropdown:hover .dropdown-menu { display: block; }
+    .nav-search input { border: 1px solid var(--border); border-radius: 20px; padding: .35rem 1rem; font-size: .85rem; outline: none; background: var(--surface); width: 180px; transition: border-color .15s, width .2s; }
+    .nav-search input:focus { border-color: var(--accent); width: 220px; }
+    .nav-hamburger { display: none; cursor: pointer; font-size: 1.4rem; }
+    footer { background: #0f172a; color: #94a3b8; padding: 3rem 1.5rem; margin-top: 4rem; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 2rem; }
+    footer h4 { color: #fff; font-size: .875rem; margin-bottom: .75rem; }
+    footer p, footer li { font-size: .85rem; line-height: 1.8; }
+    footer ul { list-style: none; }
+    footer ul li a { color: #94a3b8; transition: color .15s; }
+    footer ul li a:hover { color: #fff; }
+    .footer-bottom { max-width: 1200px; margin: 2rem auto 0; padding-top: 1.5rem; border-top: 1px solid #1e293b; font-size: .8rem; display: flex; justify-content: space-between; }
+    @media (max-width: 900px) { .nav-links, .nav-search { display: none; } .nav-hamburger { display: block; } .footer-inner { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 900px) {
+      .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 60px; left: 0; right: 0; background: var(--bg); border-bottom: 1px solid var(--border); padding: .5rem 0; z-index: 200; box-shadow: 0 8px 24px rgba(0,0,0,.1); }
+      .nav-links.open li a { padding: .5rem 1.5rem; }
+      .nav-links.open .dropdown-menu { display: block; position: static; box-shadow: none; border: none; min-width: auto; padding: 0 0 .25rem 1rem; }
+    }
+    @media (max-width: 600px) { .footer-inner { grid-template-columns: 1fr; } }
+
+    .page-header { max-width: 760px; margin: 0 auto; padding: 3rem 1.5rem 2rem; border-bottom: 1px solid var(--border); }
+    .section-label { font-size: .7rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); margin-bottom: .75rem; }
+    .page-header h1 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; line-height: 1.2; margin-bottom: .6rem; }
+    .page-header p { color: var(--muted); font-size: .95rem; line-height: 1.7; max-width: 52ch; }
+    .garden-note { margin-top: 1.25rem; padding: .85rem 1.1rem; background: var(--surface); border-left: 3px solid var(--accent); border-radius: 0 var(--radius) var(--radius) 0; font-size: .85rem; color: var(--muted); line-height: 1.65; }
+    .garden-note strong { color: var(--ink); }
+
+    .notes-body { max-width: 760px; margin: 0 auto; padding: 2.5rem 1.5rem 3rem; }
+    .status-filter { display: flex; gap: .5rem; margin-bottom: 2rem; flex-wrap: wrap; }
+    .status-filter button { font: .8rem/1 var(--font); font-weight: 600; padding: .4rem .9rem; border-radius: 20px; border: 1px solid var(--border); background: var(--bg); color: var(--muted); cursor: pointer; transition: all .15s; }
+    .status-filter button:hover, .status-filter button.active { border-color: var(--accent); color: var(--accent); background: var(--accent-bg); }
+    .note-list { display: flex; flex-direction: column; gap: 1.25rem; }
+    .note-item { padding: 1.25rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg); transition: box-shadow .15s; }
+    .note-item:hover { box-shadow: 0 4px 16px rgba(0,0,0,.07); }
+    .note-item-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: .4rem; }
+    .note-item-title { font-size: .975rem; font-weight: 700; line-height: 1.35; }
+    .note-item-title a:hover { color: var(--accent); }
+    .note-item-meta { font-size: .75rem; color: var(--muted); display: flex; gap: .5rem; align-items: center; margin-bottom: .5rem; }
+    .note-item-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: var(--muted); }
+    .note-item-excerpt { font-size: .85rem; color: var(--muted); line-height: 1.6; }
+    .status-badge { font-size: .65rem; font-weight: 600; letter-spacing: .04em; padding: .15rem .45rem; border-radius: 10px; text-transform: uppercase; white-space: nowrap; flex-shrink: 0; }
+    .status-badge.seedling { color: #065f46; background: #d1fae5; border: 1px solid #a7f3d0; }
+    .status-badge.growing { color: #1e40af; background: #dbeafe; border: 1px solid #bfdbfe; }
+    .status-badge.evergreen { color: #166534; background: #f0fdf4; border: 1px solid #bbf7d0; }
+
+    html[data-theme="dark"] { --ink:#e2e8f0; --muted:#94a3b8; --border:#1e293b; --accent:#60a5fa; --accent-bg:#1e3a5f; --bg:#0f172a; --surface:#1e293b; }
+    html[data-theme="dark"] .site-header { background: rgba(15,23,42,.92); }
+    html[data-theme="dark"] footer { background: #020617; }
+    html[data-theme="dark"] .status-badge.seedling { color: #6ee7b7; background: #064e3b; border-color: #065f46; }
+    html[data-theme="dark"] .status-badge.growing { color: #93c5fd; background: #1e3a5f; border-color: #1e40af; }
+    html[data-theme="dark"] .status-badge.evergreen { color: #86efac; background: #052e16; border-color: #166534; }
+    .dark-toggle { background: none; border: 1px solid var(--border); border-radius: var(--radius); padding: .3rem .45rem; cursor: pointer; color: var(--muted); display: flex; align-items: center; transition: color .15s, border-color .15s; margin-left: .5rem; }
+    .dark-toggle:hover { color: var(--ink); border-color: var(--ink); }
+    .dark-toggle .icon-sun { display: none; }
+    html[data-theme="dark"] .dark-toggle .icon-sun { display: block; }
+    html[data-theme="dark"] .dark-toggle .icon-moon { display: none; }
+  </style>
+  <script>(function(){var t=localStorage.getItem('theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');})();</script>
+</head>
+<body>
+<header class="site-header">
+  <nav class="nav-inner">
+    <div class="logo"><a href="../index.html">INSIGHT<span>MENT</span></a></div>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li class="dropdown"><a href="#">Professional &#9662;</a>
+        <ul class="dropdown-menu">
+          <li><a href="../index.html?cat=ai-and-machine-learning">AI &amp; Machine Learning</a></li>
+          <li><a href="../index.html?cat=crm-and-salesforce">CRM &amp; Salesforce</a></li>
+          <li><a href="../index.html?cat=saas-and-product-thinking">SaaS &amp; Product Thinking</a></li>
+        </ul></li>
+      <li class="dropdown"><a href="#">Ideas &#9662;</a>
+        <ul class="dropdown-menu">
+          <li><a href="../index.html?cat=islamic-theology">Islamic Theology</a></li>
+          <li><a href="../index.html?cat=philosophy">Philosophy</a></li>
+          <li><a href="../index.html?cat=writing-and-craft">Writing &amp; Craft</a></li>
+        </ul></li>
+      <li class="dropdown"><a href="#">Personal &#9662;</a>
+        <ul class="dropdown-menu">
+          <li><a href="../index.html?cat=canadian-finance">Canadian Finance</a></li>
+          <li><a href="../index.html?cat=side-projects">Side Projects</a></li>
+          <li><a href="../index.html?cat=notes">Notes</a></li>
+        </ul></li>
+      <li><a href="../categories.html">All Topics</a></li>
+      <li><a href="https://insightment.co.za" target="_blank">About</a></li>
+      <li><a href="../explore.html" style="color:var(--accent);">Explore &#8599;</a></li>
+    </ul>
+    <div class="nav-search"><input type="search" placeholder="Search posts&hellip;" /></div>
+    <div class="nav-hamburger">&#9776;</div>
+  </nav>
+</header>
+
+<div class="page-header">
+  <div class="section-label">Digital Garden</div>
+  <h1>Notes</h1>
+  <p>Short-form fragments, observations, and notes that are intentionally brief or not yet fully formed. Some will grow into essays. Others are valuable precisely because they are unfinished.</p>
+  <div class="garden-note">
+    <strong>How the garden works:</strong> Posts are tagged with a growth status. <strong>Seedling</strong> means early, rough, possibly incomplete. <strong>Growing</strong> means developed but still being revised. <strong>Evergreen</strong> means considered stable.
+  </div>
+</div>
+
+<div class="notes-body">
+  <div class="status-filter">
+    <button class="active" data-filter="all">All</button>
+    <button data-filter="seedling">Seedling</button>
+    <button data-filter="growing">Growing</button>
+    <button data-filter="evergreen">Evergreen</button>
+  </div>
+
+  <div class="note-list">
+
+    <div class="note-item" data-status="seedling">
+      <div class="note-item-header">
+        <div class="note-item-title"><a href="../posts/it-is-what-it-is-on-policy-failure-and-accountability.html">&ldquo;It Is What It Is&rdquo; Is Never Good Enough: On Policy Failure and Abdication of Responsibility</a></div>
+        <span class="status-badge seedling">Seedling</span>
+      </div>
+      <div class="note-item-meta"><span>Jan 18, 2022</span><span class="dot"></span><span>1 min read</span></div>
+      <div class="note-item-excerpt">Can we stop using this phrase? It is a clear statement that someone has reached the limit of their analytical ability or, more worryingly, the limit of their willingness to act.</div>
+    </div>
+
+    <div class="note-item" data-status="seedling">
+      <div class="note-item-header">
+        <div class="note-item-title"><a href="../posts/leadership-aikido-from-command-and-control-to-harmonious-leadership.html">Leadership Aikido by John O&rsquo;Neil: Moving from Command-and-Control to Harmonious Leadership</a></div>
+        <span class="status-badge seedling">Seedling</span>
+      </div>
+      <div class="note-item-meta"><span>Nov 8, 2017</span><span class="dot"></span><span>2 min read</span></div>
+      <div class="note-item-excerpt">Notes from re-reading a book I picked up almost 20 years ago — an exploration of harmonious leadership principles drawn from the martial art of aikido.</div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <h4>INSIGHTMENT</h4>
+      <p>A personal knowledge site at the intersection of professional practice, intellectual tradition, and a curiosity about language, history, and ideas.</p>
+    </div>
+    <div>
+      <h4>Topics</h4>
+      <ul>
+        <li><a href="../index.html?cat=ai-and-machine-learning">AI &amp; Machine Learning</a></li>
+        <li><a href="../index.html?cat=crm-and-salesforce">CRM &amp; Salesforce</a></li>
+        <li><a href="../index.html?cat=saas-and-product-thinking">SaaS &amp; Product Thinking</a></li>
+        <li><a href="../categories.html">All Topics &rarr;</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Site</h4>
+      <ul>
+        <li><a href="https://insightment.co.za" target="_blank">insightment.co.za</a></li>
+        <li><a href="https://insightment.co.za" target="_blank">About</a></li>
+        <li><a href="https://insightment.co.za" target="_blank">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 Insightment</span>
+    <span>Built with GitHub Pages</span>
+  </div>
+</footer>
+<script>
+(function(){
+  var hb=document.querySelector('.nav-hamburger');
+  var nl=document.querySelector('.nav-links');
+  if(!hb||!nl) return;
+  hb.addEventListener('click',function(e){e.stopPropagation();nl.classList.toggle('open');});
+  document.addEventListener('click',function(){nl.classList.remove('open');});
+})();
+(function(){
+  var btns=document.querySelectorAll('.status-filter button');
+  var items=document.querySelectorAll('.note-item');
+  btns.forEach(function(btn){
+    btn.addEventListener('click',function(){
+      btns.forEach(function(b){b.classList.remove('active');});
+      btn.classList.add('active');
+      var filter=btn.dataset.filter;
+      items.forEach(function(item){
+        item.style.display=(filter==='all'||item.dataset.status===filter)?'':'none';
+      });
+    });
+  });
+})();
+(function(){
+  var btn=document.getElementById('dark-toggle');
+  if(!btn) return;
+  btn.addEventListener('click',function(){
+    var next=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';
+    document.documentElement.setAttribute('data-theme',next);
+    localStorage.setItem('theme',next);
+  });
+})();
+</script>
+</body>
+</html>

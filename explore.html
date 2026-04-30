@@ -62,41 +62,67 @@
   // ── DATA ────────────────────────────────────────────────────────────────────
 
   const NODES = [
-    { id: 'home',           label: 'INSIGHTMENT',                  type: 'hub', url: './index.html' },
-    { id: 'salesforce',     label: 'Salesforce',                   type: 'cat' },
-    { id: 'strategy',       label: 'Strategy',                     type: 'cat' },
-    { id: 'analytics',      label: 'Analytics',                    type: 'cat' },
-    { id: 'ai',             label: 'AI & Tech',                    type: 'cat' },
-    { id: 'howto',          label: 'How-To Guides',                type: 'sub' },
-    { id: 'implementation', label: 'Implementation',               type: 'sub' },
-    { id: 'ownership',      label: 'Product Ownership',            type: 'sub' },
-    { id: 'reports',        label: 'Reports & Dashboards',         type: 'sub' },
-    { id: 'formulas',       label: 'Report Formulas',              type: 'sub' },
-    { id: 'crm',            label: 'CRM Strategy',                 type: 'sub' },
-    { id: 'change',         label: 'Change Management',            type: 'sub' },
-    { id: 'vendors',        label: 'Vendors',                      type: 'sub' },
-    { id: 'sales-a',        label: 'Sales Analytics',              type: 'sub' },
-    { id: 'p-ui',           label: "The SaaS Incumbent's Dilemma",  type: 'post', url: './posts/saas-incumbents-dilemma-conversational-ai-vs-web-forms.html' },
-    { id: 'p-pipe',         label: 'Where Does Your Pipeline Leak?', type: 'post', url: './posts/salesforce-pipeline-leak-analysis-opportunity-history-reports.html' },
-    { id: 'p-bigdata',      label: 'AI & Big Data Ethics',          type: 'post', url: './posts/ai-and-big-data-machine-decision-making-ethics.html' },
-    { id: 'p-pval',         label: 'PARENTGROUPVAL vs PREVGROUPVAL', type: 'post', url: './posts/salesforce-report-formulas-parentgroupval-vs-prevgroupval.html' },
-    { id: 'p-dosdonts',     label: 'Two Decades of Salesforce',     type: 'post', url: './posts/two-decades-of-salesforce-enterprise-crm-product-ownership.html' },
-    { id: 'p-patterns',     label: 'AI Pattern Recognition',        type: 'post', url: './posts/ai-pattern-recognition-and-algorithmic-diagnosis.html' },
-    { id: 'p-crm',          label: 'Chat-First CRM with Claude',    type: 'post', url: './posts/chat-first-crm-with-claude-and-mcp.html' },
+    { id: 'home',       label: 'INSIGHTMENT',                  type: 'hub',  url: './index.html' },
+    // Categories
+    { id: 'ai',         label: 'AI & Machine Learning',        type: 'cat',  url: './index.html?cat=ai-and-machine-learning' },
+    { id: 'crm',        label: 'CRM & Salesforce',             type: 'cat',  url: './index.html?cat=crm-and-salesforce' },
+    { id: 'saas',       label: 'SaaS & Product Thinking',      type: 'cat',  url: './index.html?cat=saas-and-product-thinking' },
+    { id: 'islamic',    label: 'Islamic Theology',             type: 'cat',  url: './index.html?cat=islamic-theology' },
+    { id: 'philosophy', label: 'Philosophy',                   type: 'cat',  url: './index.html?cat=philosophy' },
+    { id: 'writing',    label: 'Writing & Craft',              type: 'cat',  url: './index.html?cat=writing-and-craft' },
+    { id: 'finance',    label: 'Canadian Finance',             type: 'cat',  url: './index.html?cat=canadian-finance' },
+    { id: 'projects',   label: 'Side Projects',                type: 'cat',  url: './index.html?cat=side-projects' },
+    { id: 'notes',      label: 'Notes',                        type: 'cat',  url: './notes/' },
+    // Subcategories
+    { id: 'sub-llm',    label: 'Large Language Models',        type: 'sub' },
+    { id: 'sub-agents', label: 'Agents & Agentic Systems',     type: 'sub' },
+    { id: 'sub-aisos',  label: 'AI and Society',               type: 'sub' },
+    { id: 'sub-crmst',  label: 'CRM Strategy',                 type: 'sub' },
+    { id: 'sub-sfplat', label: 'Salesforce Platform',          type: 'sub' },
+    { id: 'sub-po',     label: 'Product Ownership',            type: 'sub' },
+    { id: 'sub-saasec', label: 'SaaS Economics',               type: 'sub' },
+    { id: 'sub-plat',   label: 'Platform Strategy',            type: 'sub' },
+    { id: 'sub-epist',  label: 'Epistemology & Truth',         type: 'sub' },
+    { id: 'sub-voice',  label: 'Writing Voice',                type: 'sub' },
+    // Posts (featured selection)
+    { id: 'p-incumbent', label: "The SaaS Incumbent's Dilemma",     type: 'post', url: './posts/saas-incumbents-dilemma-conversational-ai-vs-web-forms.html' },
+    { id: 'p-chatcrm',   label: 'Chat-First CRM with Claude & MCP', type: 'post', url: './posts/chat-first-crm-with-claude-and-mcp.html' },
+    { id: 'p-bigdata',   label: 'AI & Big Data Ethics',              type: 'post', url: './posts/ai-and-big-data-machine-decision-making-ethics.html' },
+    { id: 'p-pipeline',  label: 'Where Does Your Pipeline Leak?',    type: 'post', url: './posts/salesforce-pipeline-leak-analysis-opportunity-history-reports.html' },
+    { id: 'p-pval',      label: 'PARENTGROUPVAL vs PREVGROUPVAL',    type: 'post', url: './posts/salesforce-report-formulas-parentgroupval-vs-prevgroupval.html' },
+    { id: 'p-decades',   label: 'Two Decades of Salesforce',         type: 'post', url: './posts/two-decades-of-salesforce-enterprise-crm-product-ownership.html' },
+    { id: 'p-saaseco',   label: 'SaaS vs On-Premise: TCO',           type: 'post', url: './posts/saas-vs-on-premise-total-cost-of-ownership.html' },
+    { id: 'p-resist',    label: 'Why Our Brains Resist Innovation',  type: 'post', url: './posts/why-our-brains-resist-innovation.html' },
+    { id: 'p-listicles', label: 'Listicles: Fast Food of Ideas',     type: 'post', url: './posts/why-listicles-are-the-fast-food-of-ideas.html' },
   ];
 
   const EDGES = [
-    ['home', 'salesforce'], ['home', 'strategy'], ['home', 'analytics'], ['home', 'ai'],
-    ['salesforce', 'howto'], ['salesforce', 'implementation'], ['salesforce', 'ownership'],
-    ['salesforce', 'reports'], ['salesforce', 'formulas'],
-    ['strategy', 'crm'], ['strategy', 'change'], ['strategy', 'vendors'],
-    ['analytics', 'sales-a'], ['analytics', 'reports'],
-    ['ai', 'p-ui'], ['ai', 'p-bigdata'], ['ai', 'p-patterns'],
-    ['sales-a', 'p-pipe'],
-    ['howto', 'p-pval'], ['formulas', 'p-pval'],
-    ['reports', 'p-pval'],
-    ['ownership', 'p-dosdonts'], ['crm', 'p-dosdonts'],
-    ['implementation', 'p-crm'],
+    // Hub → categories
+    ['home', 'ai'], ['home', 'crm'], ['home', 'saas'],
+    ['home', 'philosophy'], ['home', 'writing'], ['home', 'notes'],
+    ['home', 'islamic'], ['home', 'finance'], ['home', 'projects'],
+    // AI subcats
+    ['ai', 'sub-llm'], ['ai', 'sub-agents'], ['ai', 'sub-aisos'],
+    // CRM subcats
+    ['crm', 'sub-crmst'], ['crm', 'sub-sfplat'], ['crm', 'sub-po'],
+    // SaaS subcats
+    ['saas', 'sub-saasec'], ['saas', 'sub-plat'],
+    // Philosophy subcats
+    ['philosophy', 'sub-epist'],
+    // Writing subcats
+    ['writing', 'sub-voice'],
+    // Posts → subcats
+    ['sub-aisos',  'p-incumbent'], ['sub-aisos',  'p-bigdata'],
+    ['sub-agents', 'p-chatcrm'],
+    ['sub-crmst',  'p-decades'],
+    ['sub-sfplat', 'p-pipeline'], ['sub-sfplat', 'p-pval'],
+    ['sub-po',     'p-decades'],
+    ['sub-saasec', 'p-saaseco'],
+    ['sub-epist',  'p-resist'],
+    ['sub-voice',  'p-listicles'],
+    // Cross-category connections
+    ['p-incumbent', 'p-chatcrm'],
+    ['p-incumbent', 'sub-saasec'],
   ];
 
   // ── CANVAS SETUP ────────────────────────────────────────────────────────────

@@ -95,6 +95,17 @@
     .dark-toggle .icon-sun { display: none; }
     html[data-theme="dark"] .dark-toggle .icon-sun { display: block; }
     html[data-theme="dark"] .dark-toggle .icon-moon { display: none; }
+
+    .authorship-badge { font-size: .7rem; font-weight: 600; letter-spacing: .03em; padding: .15rem .5rem; border-radius: 4px; }
+    .authorship-badge.assisted { color: #d97706; background: #fef3c7; border: 1px solid #fde68a; }
+    .authorship-badge.generated { color: #7c3aed; background: #ede9fe; border: 1px solid #ddd6fe; }
+    .status-badge { font-size: .65rem; font-weight: 600; letter-spacing: .04em; padding: .15rem .45rem; border-radius: 10px; text-transform: uppercase; }
+    .status-badge.seedling { color: #065f46; background: #d1fae5; border: 1px solid #a7f3d0; }
+    .status-badge.growing { color: #1e40af; background: #dbeafe; border: 1px solid #bfdbfe; }
+    html[data-theme="dark"] .authorship-badge.assisted { color: #fbbf24; background: #451a03; border-color: #92400e; }
+    html[data-theme="dark"] .authorship-badge.generated { color: #c4b5fd; background: #2e1065; border-color: #4c1d95; }
+    html[data-theme="dark"] .status-badge.seedling { color: #6ee7b7; background: #064e3b; border-color: #065f46; }
+    html[data-theme="dark"] .status-badge.growing { color: #93c5fd; background: #1e3a5f; border-color: #1e40af; }
   </style>
   <script>(function(){var t=localStorage.getItem('theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');})();</script>
 </head>
@@ -104,25 +115,25 @@
     <div class="logo"><a href="../index.html">INSIGHT<span>MENT</span></a></div>
     <ul class="nav-links">
       <li><a href="../index.html">Home</a></li>
-      <li class="dropdown"><a href="#">Salesforce &#9662;</a>
+      <li class="dropdown"><a href="#">Professional &#9662;</a>
         <ul class="dropdown-menu">
-          <li><a href="../index.html?cat=Salesforce-How+To">How-To Guides</a></li>
-          <li><a href="../index.html?cat=Implementation">Implementation</a></li>
-          <li><a href="../index.html?cat=Product+Ownership">Product Ownership</a></li>
+          <li><a href="../index.html?cat=ai-and-machine-learning">AI &amp; Machine Learning</a></li>
+          <li><a href="../index.html?cat=crm-and-salesforce">CRM &amp; Salesforce</a></li>
+          <li><a href="../index.html?cat=saas-and-product-thinking">SaaS &amp; Product Thinking</a></li>
         </ul></li>
-      <li class="dropdown"><a href="#">Strategy &#9662;</a>
+      <li class="dropdown"><a href="#">Ideas &#9662;</a>
         <ul class="dropdown-menu">
-          <li><a href="../index.html?cat=CRM+Strategy">CRM Strategy</a></li>
-          <li><a href="../index.html?cat=Change+Management">Change Management</a></li>
-          <li><a href="../index.html?cat=Vendors">Vendors</a></li>
+          <li><a href="../index.html?cat=islamic-theology">Islamic Theology</a></li>
+          <li><a href="../index.html?cat=philosophy">Philosophy</a></li>
+          <li><a href="../index.html?cat=writing-and-craft">Writing &amp; Craft</a></li>
         </ul></li>
-      <li class="dropdown"><a href="#">Analytics &#9662;</a>
+      <li class="dropdown"><a href="#">Personal &#9662;</a>
         <ul class="dropdown-menu">
-          <li><a href="../index.html?cat=Sales+Analytics">Sales Analytics</a></li>
-          <li><a href="../index.html?cat=Reports+%26+Dashboards">Reports &amp; Dashboards</a></li>
-          <li><a href="../index.html?cat=Report+Formulas">Report Formulas</a></li>
+          <li><a href="../index.html?cat=canadian-finance">Canadian Finance</a></li>
+          <li><a href="../index.html?cat=side-projects">Side Projects</a></li>
+          <li><a href="../index.html?cat=notes">Notes</a></li>
         </ul></li>
-      <li><a href="../index.html?cat=AI">AI &amp; Tech</a></li>
+      <li><a href="../categories.html">All Topics</a></li>
       <li><a href="https://insightment.co.za" target="_blank">About</a></li>
       <li><a href="../explore.html" style="color:var(--accent);">Explore &#8599;</a></li>
     </ul>
@@ -131,11 +142,11 @@
   </nav>
 </header>
 <div class="post-header">
-  <div class="post-cats"><span class="post-cat"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>Change Management</span><span class="post-cat">General</span><span class="post-cat">Strategy</span></div>
+  <div class="post-cats"><span class="post-cat"><a href="../index.html?cat=notes"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Notes</a></span></div>
   <h1>Leadership Aikido by John O'Neil: Moving from Command-and-Control to Harmonious Leadership</h1>
   <div class="post-meta">
     <span>Nov 8, 2017</span><span class="dot"></span><span>2 min read</span>
-  </div>
+  <span class="dot"></span><span class="status-badge seedling">Seedling</span></div>
 </div>
 <div class="article-outer">
   <article class="article-body">
@@ -234,7 +245,7 @@
     
     <div class="widget">
       <h3>Categories</h3>
-      <ul class="cat-list"><li><a href='../index.html?cat=Blog'>Blog <span class='count'>13</span></a></li><li><a href='../index.html?cat=Salesforce-How+To'>Salesforce-How To <span class='count'>5</span></a></li><li><a href='../index.html?cat=AI'>AI <span class='count'>4</span></a></li><li><a href='../index.html?cat=CRM'>CRM <span class='count'>3</span></a></li><li><a href='../index.html?cat=General'>General <span class='count'>3</span></a></li><li><a href='../index.html?cat=Technology'>Technology <span class='count'>3</span></a></li><li><a href='../index.html?cat=Product+Ownership'>Product Ownership <span class='count'>2</span></a></li><li><a href='../index.html?cat=Reports+%26+Dashboards'>Reports &amp; Dashboards <span class='count'>2</span></a></li><li><a href='../index.html?cat=Sales+Analytics'>Sales Analytics <span class='count'>2</span></a></li><li><a href='../index.html?cat=Strategy'>Strategy <span class='count'>2</span></a></li><li><a href='../index.html?cat=Change+Management'>Change Management <span class='count'>1</span></a></li><li><a href='../index.html?cat=Implementation'>Implementation <span class='count'>1</span></a></li><li><a href='../index.html?cat=Report+Formulas'>Report Formulas <span class='count'>1</span></a></li><li><a href='../index.html?cat=Salesforce'>Salesforce <span class='count'>1</span></a></li><li><a href='../index.html?cat=Vendors'>Vendors <span class='count'>1</span></a></li></ul>
+      <ul class="cat-list"><li><a href='../index.html?cat=ai-and-machine-learning'>AI &amp; Machine Learning <span class='count'>4</span></a></li><li><a href='../index.html?cat=crm-and-salesforce'>CRM &amp; Salesforce <span class='count'>10</span></a></li><li><a href='../index.html?cat=saas-and-product-thinking'>SaaS &amp; Product Thinking <span class='count'>9</span></a></li><li><a href='../index.html?cat=philosophy'>Philosophy <span class='count'>1</span></a></li><li><a href='../index.html?cat=writing-and-craft'>Writing &amp; Craft <span class='count'>1</span></a></li><li><a href='../index.html?cat=notes'>Notes <span class='count'>2</span></a></li><li><a href='../index.html?cat=islamic-theology'>Islamic Theology <span class='count'>0</span></a></li><li><a href='../index.html?cat=canadian-finance'>Canadian Finance <span class='count'>0</span></a></li><li><a href='../index.html?cat=side-projects'>Side Projects <span class='count'>0</span></a></li></ul>
     </div>
     <div class="widget" style="background:#eff6ff;border-color:#bfdbfe;">
       <h3 style="color:#1d4ed8;">About Insightment</h3>
@@ -252,11 +263,10 @@
     <div>
       <h4>Topics</h4>
       <ul>
-        <li><a href="../index.html?cat=Salesforce-How+To">Salesforce How-To</a></li>
-        <li><a href="../index.html?cat=CRM+Strategy">CRM Strategy</a></li>
-        <li><a href="../index.html?cat=Sales+Analytics">Sales Analytics</a></li>
-        <li><a href="../index.html?cat=Reports+%26+Dashboards">Reports &amp; Dashboards</a></li>
-        <li><a href="../index.html?cat=AI">AI &amp; Technology</a></li>
+        <li><a href="../index.html?cat=ai-and-machine-learning">AI &amp; Machine Learning</a></li>
+        <li><a href="../index.html?cat=crm-and-salesforce">CRM &amp; Salesforce</a></li>
+        <li><a href="../index.html?cat=saas-and-product-thinking">SaaS &amp; Product Thinking</a></li>
+        <li><a href="../categories.html">All Topics &rarr;</a></li>
       </ul>
     </div>
     <div>

@@ -173,4 +173,5 @@ const POSTS = [
   { slug: 'leadership-aikido-from-command-and-control-to-harmonious-leadership', category: 'notes',           subcategory: null,                      authorship: 'original',  status: 'seedling',  date: '2017-11-08' },
   { slug: 'it-is-what-it-is-on-policy-failure-and-accountability',     category: 'notes',                     subcategory: null,                      authorship: 'original',  status: 'seedling',  date: '2022-01-18' },
   { slug: 'why-listicles-are-the-fast-food-of-ideas',                  category: 'writing-and-craft',         subcategory: 'Writing Voice',           authorship: 'original',  status: 'growing',   date: '2022-01-11' },
+  { slug: 'culture-eats-strategy-organisation-change',                  category: 'crm-and-salesforce',        subcategory: 'CRM Strategy',            authorship: 'original',  status: 'growing',   date: '2017-03-04' },
 ];
